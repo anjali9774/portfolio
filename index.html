@@ -196,7 +196,7 @@
       position: relative;
       z-index: 10;
       display: grid;
-      grid-template-columns: 1.15fr 1fr 1fr;
+      grid-template-columns: 1.2fr 1fr 1fr;
       align-items: center;
       gap: clamp(16px, 3vw, 36px);
     }
@@ -222,11 +222,11 @@
       border-radius: 4px;
     }
 
-    /* ENLARGED CONTACT DOCK */
+    /* ENLARGED CONTACT DOCK WITH GITHUB */
     .social-dock {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       margin-top: 14px;
       flex-wrap: wrap;
     }
@@ -846,7 +846,7 @@
     }
 
     /* ========================================================
-       RESUME VIEWER (DESKTOP MODAL + MOBILE BOTTOM SHEET)
+       RESUME VIEWER (DESKTOP MODAL + MOBILE APP-STYLE VIEWER)
        ======================================================== */
     .resume-modal {
       position: fixed;
@@ -854,7 +854,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(9, 13, 22, 0.9);
+      background: rgba(9, 13, 22, 0.92);
       backdrop-filter: blur(14px);
       z-index: 9999;
       display: none;
@@ -947,13 +947,13 @@
       background: #151b28;
     }
 
-    /* MOBILE NATIVE BOTTOM SHEET (HIDDEN ON DESKTOP) */
-    .mobile-sheet-card {
+    /* MOBILE NATIVE APP-LIKE PDF VIEW */
+    .mobile-resume-container {
       display: none;
     }
 
     /* ========================================================
-       RESPONSIVE BREAKPOINTS (MOBILE AND TABLET OPTIMIZATIONS)
+       RESPONSIVE BREAKPOINTS
        ======================================================== */
     @media (max-width: 1024px) {
       .hero-grid {
@@ -984,7 +984,7 @@
         border-radius: 18px;
         gap: 20px;
       }
-      .nav-links-desktop, .btn-resume {
+      .nav-links-desktop {
         display: none;
       }
       .mobile-fixed-dock {
@@ -1037,136 +1037,119 @@
       }
 
       /* ----------------------------------------------------
-         MOBILE ONLY: HIDE IFRAME MODAL & SHOW BOTTOM SHEET
+         MOBILE ONLY: FULL-SCREEN APP RESUME VIEWER
          ---------------------------------------------------- */
       .modal-sheet-desktop {
         display: none !important;
       }
 
       .resume-modal {
-        align-items: flex-end;
         padding: 0;
+        align-items: stretch;
       }
 
-      .mobile-sheet-card {
+      .mobile-resume-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
         width: 100vw;
-        background: #0f1422;
-        border-top: 1px solid rgba(255, 255, 255, 0.25);
-        border-radius: 24px 24px 0 0;
-        padding: 24px 20px 42px 20px;
-        box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.8);
-        animation: slideUpMobile 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        text-align: center;
+        height: 100vh;
+        background: #090d16;
+        position: relative;
+        z-index: 10000;
       }
 
-      @keyframes slideUpMobile {
-        from { transform: translateY(100%); }
-        to { transform: translateY(0); }
+      .mobile-resume-nav {
+        height: 58px;
+        padding: 0 16px;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
       }
 
-      .sheet-grabber {
-        width: 44px;
-        height: 5px;
-        background: rgba(255, 255, 255, 0.25);
-        border-radius: 4px;
-        margin-bottom: 20px;
+      .mobile-nav-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
-      .sheet-icon-wrap {
-        width: 60px;
-        height: 60px;
-        border-radius: 18px;
-        background: rgba(29, 78, 216, 0.2);
-        border: 1px solid rgba(59, 130, 246, 0.4);
+      .mobile-close-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: #fff;
+        font-size: 1.2rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.8rem;
-        margin-bottom: 14px;
+        cursor: pointer;
       }
 
-      .sheet-title {
-        font-size: 1.25rem;
-        font-weight: 800;
+      .mobile-resume-title {
+        font-size: 0.88rem;
+        font-weight: 700;
         color: #fff;
-        margin-bottom: 4px;
-      }
-
-      .sheet-subtitle {
         font-family: 'JetBrains Mono', monospace;
-        font-size: 0.76rem;
-        color: var(--terminal-cyan);
-        margin-bottom: 12px;
       }
 
-      .sheet-meta-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 12px 16px;
-        width: 100%;
-        margin-bottom: 22px;
-        font-size: 0.8rem;
-        color: #94a3b8;
-        line-height: 1.5;
-        text-align: left;
-      }
-
-      .sheet-actions-column {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        width: 100%;
-      }
-
-      .btn-sheet-download {
+      /* Top Corner App-Style Download Button */
+      .mobile-download-action-btn {
         background: var(--royal-blue);
         color: #fff;
         border: 1px solid #60a5fa;
-        font-size: 0.95rem;
+        padding: 7px 14px;
+        border-radius: 999px;
+        font-size: 0.78rem;
         font-weight: 700;
-        padding: 14px;
-        border-radius: 14px;
         text-decoration: none;
-        display: flex;
+        display: inline-flex;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
-        box-shadow: 0 8px 25px rgba(29, 78, 216, 0.45);
-        cursor: pointer;
-      }
-      .btn-sheet-download:active {
-        background: #1e40af;
+        gap: 6px;
+        box-shadow: 0 4px 14px rgba(29, 78, 216, 0.4);
       }
 
-      .btn-sheet-reader {
-        background: rgba(255, 255, 255, 0.06);
-        color: #e2e8f0;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        font-size: 0.9rem;
-        font-weight: 600;
-        padding: 12px;
-        border-radius: 14px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        cursor: pointer;
+      .mobile-download-action-btn svg {
+        width: 15px;
+        height: 15px;
       }
 
-      .btn-sheet-cancel {
-        background: transparent;
+      .mobile-pdf-viewport {
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        background: #111827;
+      }
+
+      .mobile-pdf-embed {
+        width: 100%;
+        height: 100%;
         border: none;
-        color: #64748b;
-        font-size: 0.88rem;
-        font-weight: 600;
-        padding: 8px;
-        margin-top: 6px;
-        cursor: pointer;
+      }
+
+      .mobile-fallback-card {
+        padding: 24px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        height: 100%;
+      }
+
+      .mobile-fallback-card .pill-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
   </style>
@@ -1207,6 +1190,11 @@
           <!-- LinkedIn -->
           <a href="https://linkedin.com/in/anjali" target="_blank" class="social-btn" title="LinkedIn Profile">
             <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 0 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+          </a>
+
+          <!-- GitHub Profile -->
+          <a href="https://github.com/anjali" target="_blank" class="social-btn" title="GitHub Profile">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
           </a>
 
           <!-- Email -->
@@ -1253,7 +1241,7 @@
         <span class="label-intro">INTRODUCING</span>
         <h2 class="hero-bio-title">Full Stack Engineer.<br>Specialized in Scalable Systems.</h2>
         <p class="hero-bio-para">
-          Over 2.5+ years designing enterprise SaaS web platforms, hardening API gateways, and building microservices across React, Next.js, Node.js, and TypeScript[cite: 1].
+          Over 2.5+ years building scalable SaaS web applications across frontend, backend, and API layers using React.js, Next.js, Node.js, Express.js, TypeScript, PHP, Laravel, and MongoDB[cite: 3]. Owned end-to-end feature delivery, 25+ secured APIs, and 100+ production issue fixes[cite: 3].
         </p>
         <a class="btn-story" onclick="activateSection('experience')">
           Launch live workstation <span>→</span>
@@ -1305,15 +1293,15 @@
                 <span class="node-tag">2.5+ Yrs</span>
               </div>
               <div class="tree-node" id="node-unstop" onclick="selectNode('unstop')">
-                <span class="node-label"><span class="node-icon">⚡</span> Unstop (SDE 1)</span>
-                <span class="node-tag">2026-Pres</span>
+                <span class="node-label"><span class="node-icon">⚡</span> Unstop (SDE)</span>
+                <span class="node-tag">25+ APIs</span>
               </div>
               <div class="tree-node" id="node-jungleworks" onclick="selectNode('jungleworks')">
                 <span class="node-label"><span class="node-icon">📦</span> JungleWorks (SaaS)</span>
                 <span class="node-tag">15+ Ings</span>
               </div>
               <div class="tree-node" id="node-wtechy" onclick="selectNode('wtechy')">
-                <span class="node-label"><span class="node-icon">🌐</span> WTechy (Full Stack)</span>
+                <span class="node-label"><span class="node-icon">🌐</span> WTechy (Web Dev Exec)</span>
                 <span class="node-tag">CMS -40%</span>
               </div>
             </div>
@@ -1357,6 +1345,8 @@
               <span class="heat-chip" onclick="pingSkill('Next.js')">Next.js</span>
               <span class="heat-chip" onclick="pingSkill('Node.js')">Node.js</span>
               <span class="heat-chip" onclick="pingSkill('TypeScript')">TypeScript</span>
+              <span class="heat-chip" onclick="pingSkill('PostgreSQL')">PostgreSQL</span>
+              <span class="heat-chip" onclick="pingSkill('Clockwork')">Clockwork</span>
               <span class="heat-chip" onclick="pingSkill('MongoDB')">MongoDB</span>
               <span class="heat-chip" onclick="pingSkill('Redis')">Redis</span>
               <span class="heat-chip" onclick="pingSkill('Docker')">Docker</span>
@@ -1391,7 +1381,9 @@
         <div class="stack-chip"><span></span> Node.js</div>
         <div class="stack-chip"><span></span> TypeScript</div>
         <div class="stack-chip"><span></span> Express.js</div>
+        <div class="stack-chip"><span></span> Laravel & Clockwork</div>
         <div class="stack-chip"><span></span> MongoDB (NoSQL)</div>
+        <div class="stack-chip"><span></span> PostgreSQL</div>
         <div class="stack-chip"><span></span> Redis Caching</div>
         <div class="stack-chip"><span></span> Microservices</div>
         <div class="stack-chip"><span></span> REST API Security</div>
@@ -1404,6 +1396,7 @@
         <div class="stack-chip"><span></span> TypeScript</div>
         <div class="stack-chip"><span></span> Express.js</div>
         <div class="stack-chip"><span></span> MongoDB (NoSQL)</div>
+        <div class="stack-chip"><span></span> PostgreSQL</div>
         <div class="stack-chip"><span></span> Redis Caching</div>
       </div>
     </div>
@@ -1435,7 +1428,7 @@
   </div>
 
   <!-- ========================================================
-       RESUME VIEWER (DESKTOP MODAL + MOBILE BOTTOM SHEET)
+       RESUME VIEWER (DESKTOP MODAL + MOBILE APP-STYLE VIEWER)
        ======================================================== -->
   <div class="resume-modal" id="resumeModal" onclick="if(event.target===this) closeResumeModal()">
     
@@ -1459,129 +1452,133 @@
       <iframe class="modal-frame" id="pdfFrame" src="Resume_ANJALI_SDE.pdf#toolbar=1"></iframe>
     </div>
 
-    <!-- 2. MOBILE ONLY NATIVE BOTTOM SHEET (Super clean, fast, and touch-optimized) -->
-    <div class="mobile-sheet-card">
-      <div class="sheet-grabber"></div>
-      
-      <div class="sheet-icon-wrap">
-        📄
+    <!-- 2. MOBILE NATIVE APP-LIKE PDF VIEW (Top-Corner Download Button) -->
+    <div class="mobile-resume-container">
+      <div class="mobile-resume-nav">
+        <div class="mobile-nav-left">
+          <button class="mobile-close-btn" onclick="closeResumeModal()">✕</button>
+          <span class="mobile-resume-title">Resume_ANJALI.pdf</span>
+        </div>
+        <!-- Prominent Download Button in the Corner -->
+        <a href="Resume_ANJALI_SDE.pdf" download="Resume_ANJALI_SDE.pdf" class="mobile-download-action-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Download</span>
+        </a>
       </div>
 
-      <div class="sheet-title">Resume_ANJALI_SDE.pdf</div>
-      <div class="sheet-subtitle">FULL STACK SOFTWARE ENGINEER</div>
-
-      <div class="sheet-meta-card">
-        <div><strong>Experience:</strong> 2.5+ Years (Unstop, JungleWorks, WTechy)[cite: 1]</div>
-        <div style="margin-top:4px;"><strong>Core Stack:</strong> React.js, Next.js, Node.js, TypeScript, MongoDB, Redis[cite: 1]</div>
-        <div style="margin-top:4px;"><strong>Education:</strong> MCA (82%) & BCA (83.5%) — Panjab University[cite: 1]</div>
-      </div>
-
-      <div class="sheet-actions-column">
-        <!-- Direct Instant Download Button -->
-        <a href="Resume_ANJALI_SDE.pdf" download="Resume_ANJALI_SDE.pdf" class="btn-sheet-download">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          <span>Download PDF Directly</span>
-        </a>
-
-        <!-- Open in Native Reader -->
-        <a href="Resume_ANJALI_SDE.pdf" target="_blank" class="btn-sheet-reader">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-          <span>Open in Mobile PDF Viewer</span>
-        </a>
-
-        <!-- Dismiss button -->
-        <button class="btn-sheet-cancel" onclick="closeResumeModal()">Close</button>
+      <div class="mobile-pdf-viewport">
+        <object class="mobile-pdf-embed" data="Resume_ANJALI_SDE.pdf" type="application/pdf">
+          <div class="mobile-fallback-card">
+            <div style="font-size: 2.8rem;">📄</div>
+            <div style="font-size: 1.15rem; font-weight: 700;">Resume_ANJALI_SDE.pdf</div>
+            <p style="font-size: 0.85rem; color: #94a3b8; max-width: 320px; line-height: 1.5;">
+              Full Stack Software Engineer (2.5+ Yrs Exp)<br>
+              React.js • Node.js • TypeScript • 25+ Secured APIs[cite: 3]
+            </p>
+            <div class="pill-row">
+              <a href="Resume_ANJALI_SDE.pdf" target="_blank" class="hero-resume-pill" style="height: 44px;">
+                <span>Open in Full Viewer ↗</span>
+              </a>
+              <a href="Resume_ANJALI_SDE.pdf" download="Resume_ANJALI_SDE.pdf" class="modal-btn" style="padding: 10px 16px;">
+                <span>Download PDF ⤓</span>
+              </a>
+            </div>
+          </div>
+        </object>
       </div>
     </div>
 
   </div>
 
   <script>
-    // --- Data Sources ---
+    // --- Data Sources (Updated from anjai_resume.pdf) ---
     const experiencesData = [
       {
         key: "unstop",
         path: "experience/unstop.log",
-        title: "UNSTOP // SOFTWARE DEVELOPMENT ENGINEER 1",
+        title: "UNSTOP // SOFTWARE DEVELOPMENT ENGINEER",
         meta: "STATUS 200 OK | Apr 2026 - Present | Delhi",
         bullets: [
-          "Strengthened API security across 10+ endpoints by hardening authentication and authorization flows, implementing token validation, rate-limiting, and RBAC to reduce vulnerability exposure[cite: 1].",
-          "Built and shipped 8+ new features end-to-end, from requirement analysis and API design to frontend integration, using React.js, Node.js, and TypeScript collaborating closely with product and QA squads[cite: 1].",
-          "Contributed to system design discussions for new modules, evaluating scalability, data flow, microservices boundaries, and API structure to support long-term maintainability[cite: 1].",
-          "Identified and resolved 25+ bugs across the codebase through root-cause analysis, debugging, and regression testing, improving stability and reducing repeat issues[cite: 1]."
+          "API Security: Secured 25+ REST endpoints using Node.js, token validation, RBAC, authentication, authorization, and rate limiting, strengthening API security and mitigating unauthorized access risks[cite: 3].",
+          "Query Optimization: Profiled and optimized Laravel/MySQL queries using Clockwork, identifying bottlenecks and redundant database operations to improve API response efficiency and application performance[cite: 3].",
+          "Feature Engineering: Owned delivery of 8+ features using React.js, Node.js, and TypeScript from requirement analysis and API design through implementation, testing, and production rollout[cite: 3].",
+          "System Design: Designed scalable modules by defining API contracts, data flows, service boundaries, and integration patterns, improving maintainability across frontend, backend, and microservices[cite: 3]."
         ],
-        tags: ["React.js", "TypeScript", "Node.js", "RBAC", "API Security", "Microservices"]
+        tags: ["Node.js", "React.js", "TypeScript", "Clockwork", "Laravel/MySQL", "25+ Secured APIs", "RBAC"]
       },
       {
         key: "jungleworks",
         path: "experience/jungleworks.json",
-        title: "JUNGLEWORKS // SOFTWARE ENGINEER (JUGNOO & YELO)",
+        title: "JUNGLE WORKS PVT LTD // SOFTWARE ENGINEER",
         meta: "STATUS 200 OK | Nov 2024 - Mar 2026 | Mohali, Punjab",
         bullets: [
-          "Implemented and maintained 15+ third-party integrations including payment gateways, notification services, and partner APIs, supporting high-volume transactional workflows across microservices[cite: 1].",
-          "Designed and enhanced 20+ RESTful APIs with request validation, role-based authorization, and structured error handling, improving reliability, scalability, and response consistency[cite: 1].",
-          "Led a team of 5 developers by planning sprints, conducting code reviews, and mentoring juniors on system design and best practices, ensuring on-time delivery and consistent code quality[cite: 1].",
-          "Resolved 100+ production and pre-production issues through debugging, log analysis, and root cause investigation, significantly improving application stability and uptime[cite: 1].",
-          "Delivered 30+ feature enhancements and performance optimizations across Jugnoo and Yelo, including query optimization, caching strategies, and database tuning[cite: 1]."
+          "Integrations: Engineered 15+ third-party integrations using Node.js, REST APIs, payment gateways, notifications, and partner APIs, enabling reliable transactional workflows across SaaS systems (Jugnoo & Yelo)[cite: 3].",
+          "API Engineering: Designed and enhanced 20+ REST APIs using Node.js and Express.js with validation, authorization, and structured error handling, improving reliability and scalability[cite: 3].",
+          "Technical Leadership: Guided 5 developers through architecture discussions, code reviews, debugging, sprint planning, and mentoring, improving delivery consistency and code quality[cite: 3].",
+          "Production Debugging: Resolved 100+ production and pre-production issues using logs, database analysis, and root-cause investigation, improving system stability and operational reliability[cite: 3].",
+          "Performance Engineering: Delivered 30+ enhancements through query optimization, caching, and database tuning across Jugnoo and Yelo, improving application responsiveness and efficiency[cite: 3]."
         ],
-        tags: ["Node.js", "Express.js", "MongoDB", "Redis", "Team Lead (5)", "Payment Gateways"]
+        tags: ["Node.js", "Express.js", "MongoDB", "Redis", "Jugnoo & Yelo", "Team Lead (5)", "Payments"]
       },
       {
         key: "wtechy",
         path: "experience/wtechy.ts",
-        title: "WTECHY // WEB DEVELOPER EXECUTIVE",
+        title: "WTECHY PVT LTD // WEB DEVELOPER EXECUTIVE",
         meta: "STATUS 200 OK | Jun 2024 - Nov 2024 | Panchkula, Haryana",
         bullets: [
-          "Built 5+ responsive and SEO-friendly web applications using React.js and Next.js, focusing on reusable components, clean UI architecture, and cross-browser compatibility[cite: 1].",
-          "Developed backend services and RESTful APIs using Node.js, MongoDB, and PHP/Laravel, implementing authentication, session handling, and efficient data flows[cite: 1].",
-          "Integrated CMS solutions into client websites, reducing content update turnaround time by 40% and enabling non-technical teams to manage content independently[cite: 1].",
-          "Worked directly with clients to gather requirements and translate them into technical specifications, ensuring timely and accurate feature delivery[cite: 1]."
+          "Frontend Engineering: Built 5+ responsive applications using React.js and Next.js with reusable components and SEO-focused architecture, improving maintainability and UI consistency[cite: 3].",
+          "Backend Engineering: Developed REST APIs and backend services using Node.js, MongoDB with authentication, session management, and optimized data flows[cite: 3].",
+          "CMS Integration: Integrated CMS solutions into client applications, reducing content update turnaround time by 40% and enabling independent content management[cite: 3].",
+          "Solution Delivery: Translated client requirements into technical specifications and production-ready implementations, delivering features across multiple web projects within defined requirements[cite: 3]."
         ],
-        tags: ["Next.js", "React.js", "MongoDB", "Laravel", "Headless CMS"]
+        tags: ["Next.js", "React.js", "Node.js", "MongoDB", "PHP/Laravel", "CMS Integration"]
       }
     ];
 
     const educationData = [
       {
         degree: "Master of Computer Applications (MCA)",
-        score: "82% (Honors Distinction)",
+        score: "82% (Distinction Honors)",
         period: "2021 — 2024",
         institution: "Panjab University, Chandigarh",
         details: [
-          "Advanced studies in Distributed Systems, Object-Oriented Software Engineering, Cloud Computing, and Scalable Databases.",
-          "Graduated in the top percentile with an aggregate honors score of 82%[cite: 1]."
+          "Advanced study of Distributed Systems, Microservices, Algorithms, Operating Systems, and Database Architectures.",
+          "Graduated with 82% First Class distinction[cite: 3]."
         ]
       },
       {
         degree: "Bachelor of Computer Applications (BCA)",
-        score: "83.5% (Honors Distinction)",
+        score: "83.5% (Distinction Honors)",
         period: "2018 — 2021",
         institution: "Panjab University, Chandigarh",
         details: [
-          "Core Foundations: Data Structures & Algorithms, Operating Systems, Database Management Systems (SQL), Web Development[cite: 1].",
-          "Graduated with distinction scoring 83.5% aggregate[cite: 1]."
+          "Core Foundations: Data Structures & Algorithms, Object-Oriented Programming, Database Systems (RDBMS), Web Architecture[cite: 3].",
+          "Graduated with distinction scoring 83.5% aggregate[cite: 3]."
         ]
       }
     ];
 
+    // Updated full-stack technical directory
     const allSkillsData = {
-      frontend: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Bootstrap"],
+      frontend: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "Bootstrap"],
       backend: ["Node.js", "Express.js", "REST APIs", "Java", "PHP", "Laravel"],
-      databases: ["MongoDB (NoSQL)", "MySQL", "Redis (Cache)"],
-      devops: ["Docker", "AWS", "Jenkins", "CI/CD Pipelines", "Git", "GitHub"],
-      core: ["System Design", "Microservices Architecture", "Third-Party Integrations", "DSA", "API Security", "Debugging"]
+      databases: ["MongoDB (NoSQL)", "MySQL", "PostgreSQL", "Redis"],
+      devops: ["Git", "GitHub", "Docker", "Jenkins", "CI/CD Pipelines", "AWS", "Clockwork"],
+      core: ["System Design", "Microservices", "API Security", "Database Optimization", "Integrations", "Debugging", "Production Engineering", "SaaS Systems"]
     };
 
     const skillPings = {
-      'React.js': { type: 'FRONTEND', desc: 'Component virtualization, hooks architecture, and SSR hydration at Unstop & WTechy[cite: 1].' },
-      'Next.js': { type: 'FULL-STACK', desc: 'Hybrid static/server rendering and SEO optimization for web applications[cite: 1].' },
-      'Node.js': { type: 'BACKEND', desc: 'High-concurrency microservices, event-driven pipelines, and transactional REST APIs[cite: 1].' },
-      'TypeScript': { type: 'LANGUAGE', desc: 'Strict interface schemas, compile-time validation, and full typing across services[cite: 1].' },
-      'MongoDB': { type: 'NOSQL DB', desc: 'Index optimization, aggregation pipelines, and high-traffic schema design[cite: 1].' },
-      'Redis': { type: 'CACHE LAYER', desc: 'Sub-millisecond data caching, token store, and API rate-limiting enforcement[cite: 1].' },
-      'Docker': { type: 'CONTAINER', desc: 'Microservice containerization, environment parity, and CI/CD automation[cite: 1].' },
-      'REST APIs': { type: 'SECURITY', desc: 'Hardened 10+ endpoints with token validation and role-based access control[cite: 1].' },
-      'System Design': { type: 'ARCHITECTURE', desc: 'Microservices boundaries, caching strategies, and mentoring 5 developers[cite: 1].' }
+      'React.js': { type: 'FRONTEND', desc: 'Component virtualization, modular state, and SEO-focused architecture at Unstop & WTechy[cite: 3].' },
+      'Next.js': { type: 'FULL-STACK', desc: 'Hybrid server/client rendering and reusable UI components across 5+ web applications[cite: 3].' },
+      'Node.js': { type: 'BACKEND', desc: 'Asynchronous event-loops, 25+ secured endpoints, and 15+ third-party high-volume integrations[cite: 3].' },
+      'TypeScript': { type: 'LANGUAGE', desc: 'End-to-end typed contracts, interfaces, and compile-time data validation[cite: 3].' },
+      'PostgreSQL': { type: 'SQL DATASTORE', desc: 'Relational data modeling, ACID transactions, and optimized indexing schemes[cite: 3].' },
+      'Clockwork': { type: 'PROFILING & TOOLS', desc: 'Profiled and optimized Laravel/MySQL queries to eliminate bottlenecks and redundant calls[cite: 3].' },
+      'MongoDB': { type: 'NOSQL DB', desc: 'Optimized schema design, aggregation pipelines, and high-concurrency SaaS workflows[cite: 3].' },
+      'Redis': { type: 'CACHE LAYER', desc: 'Low-latency query caching, session stores, and distributed token verification[cite: 3].' },
+      'Docker': { type: 'CONTAINER', desc: 'Containerized microservices workloads, standard dev-to-prod pipeline parity[cite: 3].' },
+      'REST APIs': { type: 'SECURITY & SCALE', desc: 'Secured 25+ endpoints with RBAC, token validation, rate-limiting, and error handling[cite: 3].' },
+      'System Design': { type: 'ARCHITECTURE', desc: 'Defined service boundaries, contracts, data flows, and mentored 5 developers[cite: 3].' }
     };
 
     const stream = document.getElementById('consoleStream');
@@ -1912,7 +1909,7 @@
           openResumeModal();
           const res = document.createElement('div');
           res.className = 'log-card';
-          res.innerHTML = `<span style="color:var(--terminal-green); font-size:0.8rem;">Opening Resume_ANJALI_SDE.pdf action sheet...[cite: 1]</span>`;
+          res.innerHTML = `<span style="color:var(--terminal-green); font-size:0.8rem;">Opening Resume_ANJALI_SDE.pdf viewer...</span>`;
           stream.appendChild(res);
         } else if (experiencesData.some(e => e.key === val)) {
           selectNode(val);
@@ -1924,7 +1921,7 @@
         } else if (val === 'contact') {
           const res = document.createElement('div');
           res.className = 'log-card';
-          res.innerHTML = `<span style="color:var(--terminal-green); font-size:0.8rem;">Email: anjalicjm06@gmail.com | Phone: +91-8307376974 | LinkedIn: linkedin.com/in/anjali[cite: 1]</span>`;
+          res.innerHTML = `<span style="color:var(--terminal-green); font-size:0.8rem;">Email: anjalicjm06@gmail.com | Phone: +91-8307376974 | LinkedIn: linkedin.com/in/anjali | GitHub: github.com/anjali</span>`;
           stream.appendChild(res);
         } else {
           const res = document.createElement('div');

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>Anjali — Software Engineer & Builder</title>
+  <title>Anjali — Full Stack Systems Engineer</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -17,9 +17,9 @@
       --royal-blue-light: #3b82f6;
       --cobalt-dark: #0f172a;
       --text-white: #ffffff;
-      --text-dim: rgba(255, 255, 255, 0.78);
-      --ide-bg: #0b0f19;
-      --ide-sidebar: #0e1524;
+      --text-dim: rgba(255, 255, 255, 0.75);
+      --ide-bg: #090d16;
+      --ide-sidebar: #0e1422;
       --terminal-green: #10b981;
       --terminal-cyan: #38bdf8;
       --terminal-amber: #f59e0b;
@@ -222,6 +222,7 @@
       border-radius: 4px;
     }
 
+    /* ENLARGED CONTACT DOCK WITH GITHUB */
     .social-dock {
       display: flex;
       align-items: center;
@@ -382,9 +383,9 @@
     }
 
     .hero-bio-para {
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.85);
       font-size: 0.92rem;
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
     .btn-story {
@@ -405,7 +406,7 @@
     }
 
     /* ========================================================
-       HUMANIZED WORKSTATION (EXPLORER & DIALOGUE LOGS)
+       FULLY RESPONSIVE DEV-STATION
        ======================================================== */
     .devstation-workspace {
       position: relative;
@@ -469,7 +470,7 @@
       text-overflow: ellipsis;
     }
 
-    /* Mobile Viewport Toggle */
+    /* Mobile Pane Switcher */
     .mobile-pane-toggle {
       display: none;
       background: rgba(255, 255, 255, 0.08);
@@ -575,6 +576,7 @@
       flex-shrink: 0;
     }
 
+    /* Live Skill Heatmap Chips */
     .skill-heatmap {
       display: flex;
       flex-wrap: wrap;
@@ -596,7 +598,7 @@
       color: #fff;
     }
 
-    /* Right Console Stream */
+    /* Right Pane: Real-Time Stream Terminal */
     .station-console {
       display: flex;
       flex-direction: column;
@@ -643,24 +645,24 @@
       flex-shrink: 0;
     }
 
-    /* Warm Human Cards with Thoughtful Spacing */
     .log-card {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: clamp(14px, 2.5vw, 18px);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: clamp(12px, 2.5vw, 16px);
       margin-left: 0;
       width: 100%;
       box-sizing: border-box;
       overflow-wrap: anywhere;
       margin-bottom: 14px;
     }
+
     .log-card:last-child {
       margin-bottom: 0;
     }
 
     .log-header {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 700;
       letter-spacing: 0.4px;
       margin-bottom: 8px;
@@ -674,48 +676,40 @@
     .log-header.amber { color: var(--terminal-amber); }
 
     .bullet-row {
-      color: #d1d5db;
-      font-size: clamp(0.75rem, 1.8vw, 0.82rem);
+      color: #cbd5e1;
+      font-size: clamp(0.74rem, 1.8vw, 0.8rem);
       margin-bottom: 8px;
       padding-left: 14px;
       position: relative;
-      line-height: 1.6;
+      line-height: 1.55;
       word-break: break-word;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .bullet-row strong {
-      color: #f8fafc;
-      font-weight: 600;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
     }
     .bullet-row::before {
       content: '↳';
       position: absolute;
       left: 0;
       color: var(--terminal-cyan);
-      font-family: 'JetBrains Mono', monospace;
     }
 
     .tag-container {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 12px;
+      margin-top: 10px;
     }
     .console-tag {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       font-size: 0.68rem;
       color: #93c5fd;
-      padding: 3px 8px;
-      border-radius: 5px;
+      padding: 3px 7px;
+      border-radius: 4px;
       white-space: nowrap;
     }
 
     .skills-category-block {
-      margin-top: 12px;
-      padding-top: 10px;
+      margin-top: 10px;
+      padding-top: 8px;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
     .skills-cat-title {
@@ -728,7 +722,7 @@
       gap: 6px;
     }
 
-    /* Console Command Prompt Input */
+    /* Console Command Prompt Input Row */
     .console-input-row {
       display: flex;
       align-items: center;
@@ -758,7 +752,7 @@
       min-width: 0;
     }
 
-    /* Infinite Marquee */
+    /* Infinite Scrolling Marquee */
     .infinite-scroller {
       position: relative;
       width: 100%;
@@ -802,7 +796,9 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* Fixed Mobile Bottom Dock */
+    /* ========================================================
+       PERMANENT MOBILE FIXED BOTTOM DOCK (iOS STYLE)
+       ======================================================== */
     .mobile-fixed-dock {
       display: none;
       position: fixed;
@@ -849,7 +845,9 @@
       background: var(--royal-blue);
     }
 
-    /* Resume Viewer Container */
+    /* ========================================================
+       RESUME VIEWER (DESKTOP MODAL + MOBILE APP-STYLE VIEWER)
+       ======================================================== */
     .resume-modal {
       position: fixed;
       top: 0;
@@ -864,10 +862,12 @@
       align-items: center;
       padding: clamp(8px, 2vw, 24px);
     }
+
     .resume-modal.active {
       display: flex;
     }
 
+    /* DESKTOP MODAL CONTAINER */
     .modal-sheet-desktop {
       display: flex;
       flex-direction: column;
@@ -947,11 +947,14 @@
       background: #151b28;
     }
 
+    /* MOBILE NATIVE APP-LIKE PDF VIEW */
     .mobile-resume-container {
       display: none;
     }
 
-    /* Mobile Breakpoints */
+    /* ========================================================
+       RESPONSIVE BREAKPOINTS
+       ======================================================== */
     @media (max-width: 1024px) {
       .hero-grid {
         grid-template-columns: 1fr 1fr;
@@ -1033,13 +1036,18 @@
         padding: 12px;
       }
 
+      /* ----------------------------------------------------
+         MOBILE ONLY: FULL-SCREEN APP RESUME VIEWER
+         ---------------------------------------------------- */
       .modal-sheet-desktop {
         display: none !important;
       }
+
       .resume-modal {
         padding: 0;
         align-items: stretch;
       }
+
       .mobile-resume-container {
         display: flex;
         flex-direction: column;
@@ -1049,6 +1057,7 @@
         position: relative;
         z-index: 10000;
       }
+
       .mobile-resume-nav {
         height: 58px;
         padding: 0 16px;
@@ -1060,11 +1069,13 @@
         align-items: center;
         flex-shrink: 0;
       }
+
       .mobile-nav-left {
         display: flex;
         align-items: center;
         gap: 10px;
       }
+
       .mobile-close-btn {
         width: 36px;
         height: 36px;
@@ -1078,12 +1089,15 @@
         justify-content: center;
         cursor: pointer;
       }
+
       .mobile-resume-title {
         font-size: 0.88rem;
         font-weight: 700;
         color: #fff;
         font-family: 'JetBrains Mono', monospace;
       }
+
+      /* Top Corner App-Style Download Button */
       .mobile-download-action-btn {
         background: var(--royal-blue);
         color: #fff;
@@ -1098,10 +1112,12 @@
         gap: 6px;
         box-shadow: 0 4px 14px rgba(29, 78, 216, 0.4);
       }
+
       .mobile-download-action-btn svg {
         width: 15px;
         height: 15px;
       }
+
       .mobile-pdf-viewport {
         flex: 1;
         width: 100%;
@@ -1111,11 +1127,13 @@
         -webkit-overflow-scrolling: touch;
         background: #111827;
       }
+
       .mobile-pdf-embed {
         width: 100%;
         height: 100%;
         border: none;
       }
+
       .mobile-fallback-card {
         padding: 24px 20px;
         text-align: center;
@@ -1126,6 +1144,7 @@
         gap: 14px;
         height: 100%;
       }
+
       .mobile-fallback-card .pill-row {
         display: flex;
         gap: 10px;
@@ -1145,1024 +1164,267 @@
     <nav>
       <div class="brand-mark">A.</div>
       <div class="nav-links-desktop">
-        <span class="nav-link active" onclick="activateSection('experience')">Work & Roles</span>
-        <span class="nav-link" onclick="activateSection('stories')">War Stories</span>
-        <span class="nav-link" onclick="activateSection('stack')">How I Build</span>
-        <span class="nav-link" onclick="activateSection('academics')">Education</span>
+        <span class="nav-link active" onclick="activateSection('experience')">Experience</span>
+        <span class="nav-link" onclick="activateSection('stack')">Tech Stack</span>
+        <span class="nav-link" onclick="activateSection('skills')">Skills Heatmap</span>
+        <span class="nav-link" onclick="activateSection('academics')">Academics</span>
       </div>
       <div class="nav-right-actions">
         <button class="btn-resume" onclick="openResumeModal()">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10Here is a complete rethink of the design. 
-
-### Why the previous version felt "vibe-coded" (and how we fix it):
-1. **Generic Terminal Trope**: Every AI portfolio throws in a fake bash terminal with commands like `cat skills.env` or `ping -c 1`. Real recruiters don't want to type commands to read a resume.
-2. **Corporate/Mechanical Copy**: Robotic bullets like *"Owned delivery of 8+ features using React.js..."* sound generated. We are replacing them with **real engineering narratives** (what the real problem was, what trade-offs you faced, and how you solved it).
-3. **Impersonal Visuals**: Stock neon gradients and generic coder avatars make it look like a template. We are shifting to an **Editorial Engineer Notebook** design: warm, tactile slate-and-paper tones, handwritten notes (`// handwritten notes`), real system architecture callouts, clean typography, and genuine engineering reflections.
-
----
-
-### What's in this Human-Centric Version:
-- **"Behind the Code" Project Case Studies**: Real stories from Unstop (how you actually mitigated endpoint vulnerabilities and optimized sluggish queries with Clockwork) and JungleWorks (the reality of keeping payment webhooks alive across Jugnoo and Yelo).
-- **Engineering Philosophy & Architecture Notes**: Notes on why you prefer strict TypeScript contracts, how you think about caching vs. database writes, and real metrics.
-- **Responsive "Slide-Up" Mobile Resume Sheet**: When a recruiter taps **Resume** on their phone, it opens a clean native-style viewer card with quick file details and a single high-contrast **Download PDF** button.
-- **Enlarged Touch Targets**: Crisp, accessible contact badges for LinkedIn, GitHub, Email, and Phone.
-
----
-
-### Complete Production Code (`index.html`)
-
-Save and push this file to your repository:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>Anjali — Software Engineer & Builder</title>
-  
-  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-  <link href="[https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap](https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=JetBrains+Mono:wght@400;500&display=swap)" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #0c0e14;
-      --surface: #141721;
-      --surface-hover: #1b2030;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-focus: rgba(99, 140, 255, 0.35);
-      --accent: #3b82f6;
-      --accent-soft: rgba(59, 130, 246, 0.12);
-      --amber: #f59e0b;
-      --green: #10b981;
-      --text: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-subtle: #64748b;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: clamp(16px, 4vw, 48px) clamp(12px, 3vw, 24px);
-      padding-bottom: 120px;
-    }
-
-    .editorial-wrapper {
-      width: 100%;
-      max-width: 920px;
-      display: flex;
-      flex-direction: column;
-      gap: clamp(40px, 6vw, 72px);
-    }
-
-    /* Top Personal Navigation */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 24px;
-      gap: 16px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .avatar-dot {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #1d4ed8, #0f172a);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: #fff;
-      font-size: 1.1rem;
-    }
-
-    .brand-meta {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.2px;
-    }
-
-    .brand-title {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn-resume {
-      background: var(--surface);
-      color: #fff;
-      border: 1px solid var(--border);
-      padding: 9px 18px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-    .btn-resume:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-focus);
-      transform: translateY(-1px);
-    }
-
-    .btn-talk {
-      background: var(--accent);
-      color: #fff;
-      border: 1px solid #60a5fa;
-      padding: 9px 20px;
-      border-radius: 999px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .btn-talk:hover {
-      background: #2563eb;
-      transform: translateY(-1px);
-    }
-
-    /* Hero: Authentic Voice */
-    .hero-section {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      color: var(--green);
-      font-size: 0.78rem;
-      font-family: 'JetBrains Mono', monospace;
-      padding: 4px 12px;
-      border-radius: 999px;
-      width: max-content;
-    }
-    .status-badge span {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 8px var(--green);
-    }
-
-    .hero-headline {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      color: #fff;
-    }
-
-    .hero-headline em {
-      font-family: 'Newsreader', serif;
-      font-weight: 400;
-      font-style: italic;
-      color: #93c5fd;
-    }
-
-    .hero-bio {
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 740px;
-    }
-
-    /* Large Accessible Contact Buttons */
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-
-    .action-icon-pill {
-      height: 48px;
-      padding: 0 18px;
-      border-radius: 14px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: #e2e8f0;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .action-icon-pill svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-    }
-    .action-icon-pill:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-focus);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    /* Section Foundations */
-    .section-title-wrap {
-      margin-bottom: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .section-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-
-    .section-heading {
-      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: #fff;
-    }
-
-    /* Work Stories (Real Engineering Narrative Cards) */
-    .story-list {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .story-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: clamp(20px, 3.5vw, 32px);
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      transition: border-color 0.2s ease;
-    }
-    .story-card:hover {
-      border-color: rgba(255, 255, 255, 0.16);
-    }
-
-    .story-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .story-role {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .company-tag {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 3px 10px;
-      border-radius: 6px;
-      border: 1px solid rgba(59, 130, 246, 0.2);
-    }
-
-    .story-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--text-subtle);
-    }
-
-    .story-narrative {
-      font-size: 0.94rem;
-      color: #cbd5e1;
-      line-height: 1.68;
-    }
-
-    /* Problem -> Solution -> Impact Architecture Callouts */
-    .case-points {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 4px;
-    }
-
-    .case-box {
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 14px 16px;
-    }
-
-    .case-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .case-label.sec { color: #f87171; }
-    .case-label.perf { color: var(--amber); }
-    .case-label.scale { color: var(--green); }
-    .case-label.arch { color: #60a5fa; }
-
-    .case-text {
-      font-size: 0.85rem;
-      color: #94a3b8;
-      line-height: 1.55;
-    }
-    .case-text strong {
-      color: #f1f5f9;
-    }
-
-    .stack-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .tech-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.74rem;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #cbd5e1;
-      padding: 4px 10px;
-      border-radius: 6px;
-    }
-
-    /* Human Skills Grid: Categorized with Thought */
-    .skills-section-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-    }
-
-    .skill-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .skill-card-title {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .skill-card-note {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .skill-tags-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    /* Academics & Foundations */
-    .education-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-    }
-
-    .edu-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .edu-score {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .edu-degree {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.3;
-    }
-
-    .edu-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Fixed Mobile Quick-Bar */
-    .mobile-quick-dock {
-      display: none;
-      position: fixed;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 999;
-      background: rgba(20, 23, 33, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8);
-      border-radius: 999px;
-      padding: 6px 12px;
-      align-items: center;
-      gap: 8px;
-      width: min(92vw, 380px);
-      justify-content: space-between;
-    }
-
-    .dock-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.74rem;
-      font-weight: 600;
-      padding: 7px 12px;
-      border-radius: 999px;
-      transition: all 0.2s;
-    }
-    .dock-link.active, .dock-link:active {
-      color: #fff;
-      background: var(--accent);
-    }
-
-    /* ========================================================
-       RESUME VIEWER (DESKTOP MODAL + MOBILE APP-STYLE VIEWER)
-       ======================================================== */
-    .resume-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(9, 13, 22, 0.9);
-      backdrop-filter: blur(12px);
-      z-index: 9999;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 24px;
-    }
-
-    .resume-modal.active {
-      display: flex;
-    }
-
-    /* Desktop Modal */
-    .modal-sheet-desktop {
-      display: flex;
-      flex-direction: column;
-      width: min(100%, 960px);
-      height: min(100%, 88vh);
-      background: #10141f;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
-      overflow: hidden;
-    }
-
-    .modal-topbar {
-      padding: 14px 20px;
-      background: rgba(255, 255, 255, 0.03);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .modal-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.86rem;
-      color: #fff;
-    }
-
-    .modal-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .modal-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .modal-btn:hover {
-      background: var(--accent);
-    }
-
-    .btn-close {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.4rem;
-      cursor: pointer;
-      line-height: 1;
-      padding: 0 4px;
-    }
-
-    .modal-frame {
-      flex: 1;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* Mobile Native Fullscreen Viewer Container */
-    .mobile-resume-container {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 16px 14px;
-        padding-bottom: 96px;
-      }
-      .nav-links-desktop, .btn-resume {
-        display: none;
-      }
-      .mobile-quick-dock {
-        display: flex;
-      }
-      .contact-row {
-        gap: 10px;
-      }
-      .action-icon-pill {
-        flex: 1;
-        justify-content: center;
-        min-width: 140px;
-      }
-
-      /* Mobile App-Style Full Viewport Viewer */
-      .modal-sheet-desktop {
-        display: none !important;
-      }
-      .resume-modal {
-        padding: 0;
-        align-items: stretch;
-      }
-      .mobile-resume-container {
-        display: flex;
-        flex-direction: column;
-        width: 100vw;
-        height: 100vh;
-        background: #0c0e14;
-      }
-      .mobile-resume-nav {
-        height: 58px;
-        padding: 0 16px;
-        background: #141721;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .mobile-close-btn {
-        background: rgba(255, 255, 255, 0.1);
-        border: none;
-        color: #fff;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-      }
-      .mobile-resume-title {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.84rem;
-        font-weight: 700;
-        color: #fff;
-      }
-      .mobile-download-btn {
-        background: var(--accent);
-        color: #fff;
-        padding: 7px 14px;
-        border-radius: 999px;
-        font-size: 0.78rem;
-        font-weight: 700;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .mobile-pdf-viewport {
-        flex: 1;
-        width: 100%;
-        height: 100%;
-        overflow-y: auto;
-      }
-      .mobile-pdf-embed {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-      .mobile-fallback-card {
-        padding: 32px 20px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        gap: 16px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="editorial-wrapper">
-
-    <!-- Top Identity Header -->
-    <header>
-      <div class="brand">
-        <div class="avatar-dot">A</div>
-        <div class="brand-meta">
-          <span class="brand-name">Anjali</span>
-          <span class="brand-title">Full Stack & Systems Engineer</span>
-        </div>
-      </div>
-
-      <div class="nav-actions">
-        <button class="btn-resume" onclick="openResumeModal()">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-          Resume.pdf
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
         </button>
-        <a href="mailto:anjalicjm06@gmail.com" class="btn-talk">Get in touch</a>
+        <a href="mailto:anjalicjm06@gmail.com" class="btn-connect">Get in touch</a>
       </div>
-    </header>
+    </nav>
 
-    <!-- Hero Section: Clear, Grounded Voice -->
-    <section class="hero-section">
-      <div class="status-badge">
-        <span></span> Currently SDE @ Unstop (Delhi)
+    <!-- Main Editorial Hero -->
+    <div class="hero-grid">
+      
+      <!-- Left Column -->
+      <div class="col-left">
+        <h1 class="hero-name">Anjali<br>SDE.</h1>
+        <div class="blue-dash"></div>
+        
+        <div class="social-dock">
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/in/anjali" target="_blank" class="social-btn" title="LinkedIn Profile">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 0 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+          </a>
+
+          <!-- GitHub Profile -->
+          <a href="https://github.com/anjali" target="_blank" class="social-btn" title="GitHub Profile">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:anjalicjm06@gmail.com" class="social-btn" title="Send Email">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+
+          <!-- Phone -->
+          <a href="tel:+918307376974" class="social-btn" title="Call +91-8307376974">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </a>
+
+          <!-- Resume Action Pill -->
+          <button class="hero-resume-pill" onclick="openResumeModal()">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <span>Resume.pdf</span>
+          </button>
+        </div>
       </div>
 
-      <h1 class="hero-headline">
-        Engineering reliable backends & clean interfaces that <em>don't break at 2 AM.</em>
-      </h1>
+      <!-- Center Stylized Portrait -->
+      <div class="col-center">
+        <div class="avatar-wrapper">
+          <svg class="avatar-svg" viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="400" fill="transparent"/>
+            <path d="M120 100 C120 60, 200 60, 200 100 Z" fill="#1d4ed8"/>
+            <path d="M105 95 C140 85, 215 90, 235 105 C210 115, 120 115, 105 95 Z" fill="#2563eb"/>
+            <path d="M130 105 C130 150, 190 150, 190 105 Z" fill="#e2b997"/>
+            <path d="M145 135 L145 170 L175 170 L175 135 Z" fill="#d4a37f"/>
+            <path d="M70 170 C100 150, 220 150, 250 170 L280 400 L40 400 Z" fill="#1d4ed8"/>
+            <path d="M125 170 L160 260 L195 170 C185 210, 135 210, 125 170 Z" fill="#0f172a"/>
+            <path d="M160 265 L160 380 M130 310 L160 340 L190 310" stroke="rgba(255,255,255,0.25)" stroke-width="3" stroke-linecap="round"/>
+          </svg>
 
-      <p class="hero-bio">
-        I’m a Full Stack Engineer with 2.5+ years of experience designing and scaling web platforms across React, Next.js, Node.js, TypeScript, and Laravel. I focus on API security, query performance, and the practical challenges of distributed SaaS workflows.
-      </p>
+          <div class="live-status-pill">
+            <div class="pulse-green"></div>
+            <div class="status-text">SDE 1 @ UNSTOP (DELHI)</div>
+          </div>
+        </div>
+      </div>
 
-      <!-- Enlarged, Practical Contact Badges -->
-      <div class="contact-row">
-        <a href="[https://linkedin.com/in/anjali](https://linkedin.com/in/anjali)" target="_blank" class="action-icon-pill">
-          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 0 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
-          <span>LinkedIn</span>
+      <!-- Right Column -->
+      <div class="col-right">
+        <span class="label-intro">INTRODUCING</span>
+        <h2 class="hero-bio-title">Full Stack Engineer.<br>Specialized in Scalable Systems.</h2>
+        <p class="hero-bio-para">
+          Over 2.5+ years building scalable SaaS web applications across frontend, backend, and API layers using React.js, Next.js, Node.js, Express.js, TypeScript, PHP, Laravel, and MongoDB[cite: 3]. Owned end-to-end feature delivery, 25+ secured APIs, and 100+ production issue fixes[cite: 3].
+        </p>
+        <a class="btn-story" onclick="activateSection('experience')">
+          Launch live workstation <span>→</span>
         </a>
-
-        <a href="[https://github.com/anjali](https://github.com/anjali)" target="_blank" class="action-icon-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-          <span>GitHub</span>
-        </a>
-
-        <a href="mailto:anjalicjm06@gmail.com" class="action-icon-pill">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <span>anjalicjm06@gmail.com</span>
-        </a>
-
-        <a href="tel:+918307376974" class="action-icon-pill">
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <span>+91-8307376974</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Engineering Stories / Work History -->
-    <section id="experience">
-      <div class="section-title-wrap">
-        <span class="section-eyebrow">Work History & Impact</span>
-        <h2 class="section-heading">Where I've built and what I've learned</h2>
       </div>
 
-      <div class="story-list">
+    </div>
 
-        <!-- Role 1: Unstop -->
-        <div class="story-card">
-          <div class="story-header">
-            <div>
-              <div class="story-role">
-                Software Development Engineer
-                <span class="company-tag">Unstop</span>
-              </div>
-              <div style="font-size:0.85rem; color:#94a3b8; margin-top:2px;">Delhi, India</div>
-            </div>
-            <span class="story-date">Apr 2026 — Present</span>
+    <!-- ========================================================
+         FULLY RESPONSIVE DEV-STATION
+         ======================================================== -->
+    <div class="devstation-workspace" id="sec-workstation">
+      
+      <!-- Top Window Bar -->
+      <div class="station-titlebar">
+        <div class="titlebar-left">
+          <div class="traffic-dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
           </div>
-
-          <p class="story-narrative">
-            At Unstop, my core focus is system stability and protecting user endpoints. I took ownership of our authentication security perimeter, refactored data access patterns, and collaborated across product squads to deliver core student competition features without compromising on latency.
-          </p>
-
-          <div class="case-points">
-            <div class="case-box">
-              <div class="case-label sec">Security Hardening</div>
-              <div class="case-text">
-                Secured <strong>25+ REST endpoints</strong> by implementing strict token validation, role-based access control (RBAC), and automated rate limiting to prevent enumeration and unauthorized access risks.
-              </div>
-            </div>
-
-            <div class="case-box">
-              <div class="case-label perf">Query Profiling</div>
-              <div class="case-text">
-                Used <strong>Clockwork</strong> to profile Laravel and MySQL queries, eliminating redundant queries and database bottlenecks to improve API response efficiency.
-              </div>
-            </div>
-
-            <div class="case-box">
-              <div class="case-label scale">Feature Delivery</div>
-              <div class="case-text">
-                Owned delivery of <strong>8+ features</strong> from API design and typed TypeScript models through to frontend React components and regression verification.
-              </div>
-            </div>
-          </div>
-
-          <div class="stack-tags">
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">React.js</span>
-            <span class="tech-pill">TypeScript</span>
-            <span class="tech-pill">PHP / Laravel</span>
-            <span class="tech-pill">MySQL</span>
-            <span class="tech-pill">Clockwork</span>
-            <span class="tech-pill">RBAC</span>
+          <div class="station-breadcrumbs">
+            <span>anjali-core</span> / <span id="activePath" class="active">experience/all.log</span>
           </div>
         </div>
 
-        <!-- Role 2: JungleWorks -->
-        <div class="story-card">
-          <div class="story-header">
-            <div>
-              <div class="story-role">
-                Software Engineer
-                <span class="company-tag">JungleWorks</span>
-              </div>
-              <div style="font-size:0.85rem; color:#94a3b8; margin-top:2px;">Platforms: Jugnoo & Yelo • Mohali, Punjab</div>
-            </div>
-            <span class="story-date">Nov 2024 — Mar 2026</span>
-          </div>
-
-          <p class="story-narrative">
-            Jugnoo and Yelo are high-volume on-demand mobility and delivery platforms where every second of server downtime directly impacts merchant revenue. I led a team of 5 engineers, building resilient integrations and keeping services up through peak transaction windows.
-          </p>
-
-          <div class="case-points">
-            <div class="case-box">
-              <div class="case-label arch">Critical Integrations</div>
-              <div class="case-text">
-                Engineered <strong>15+ third-party integrations</strong> (payment gateways, partner webhooks, push notifications) using Node.js to support reliable transactions across microservices.
-              </div>
-            </div>
-
-            <div class="case-box">
-              <div class="case-label perf">Reliability & Debugging</div>
-              <div class="case-text">
-                Investigated and resolved <strong>100+ production and staging incidents</strong> using log analysis and database tuning, keeping platforms available and stable.
-              </div>
-            </div>
-
-            <div class="case-box">
-              <div class="case-label scale">Team Leadership</div>
-              <div class="case-text">
-                Guided a squad of <strong>5 developers</strong> through sprint planning, code review standards, and architectural mentoring to ensure on-time feature delivery.
-              </div>
-            </div>
-          </div>
-
-          <div class="stack-tags">
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">Express.js</span>
-            <span class="tech-pill">MongoDB</span>
-            <span class="tech-pill">Redis Cache</span>
-            <span class="tech-pill">Payment Gateways</span>
-            <span class="tech-pill">Microservices</span>
-          </div>
-        </div>
-
-        <!-- Role 3: WTechy -->
-        <div class="story-card">
-          <div class="story-header">
-            <div>
-              <div class="story-role">
-                Web Developer Executive
-                <span class="company-tag">WTechy</span>
-              </div>
-              <div style="font-size:0.85rem; color:#94a3b8; margin-top:2px;">Panchkula, Haryana</div>
-            </div>
-            <span class="story-date">Jun 2024 — Nov 2024</span>
-          </div>
-
-          <p class="story-narrative">
-            Worked across the stack to turn client requirements into production software. I built reusable component libraries, integrated headless CMS platforms, and constructed REST services with secure session handling.
-          </p>
-
-          <div class="case-points">
-            <div class="case-box">
-              <div class="case-label scale">40% Faster Updates</div>
-              <div class="case-text">
-                Integrated custom CMS workflows that reduced content turnaround time by <strong>40%</strong>, allowing marketing and non-technical stakeholders to publish independently.
-              </div>
-            </div>
-            <div class="case-box">
-              <div class="case-label arch">Modern Frontend</div>
-              <div class="case-text">
-                Built <strong>5+ responsive web apps</strong> using React and Next.js with focus on cross-browser consistency and SEO performance.
-              </div>
-            </div>
-          </div>
-
-          <div class="stack-tags">
-            <span class="tech-pill">Next.js</span>
-            <span class="tech-pill">React.js</span>
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">MongoDB</span>
-            <span class="tech-pill">Laravel</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Technical Competencies -->
-    <section id="skills">
-      <div class="section-title-wrap">
-        <span class="section-eyebrow">Skills & Tooling</span>
-        <h2 class="section-heading">How I think about the stack</h2>
-      </div>
-
-      <div class="skills-section-grid">
-        <div class="skill-card">
-          <div class="skill-card-title">◈ Frontend Architecture</div>
-          <p class="skill-card-note">I favor typed props, minimal bundle footprints, and server-first data fetching whenever feasible.</p>
-          <div class="skill-tags-group">
-            <span class="tech-pill">React.js</span>
-            <span class="tech-pill">Next.js</span>
-            <span class="tech-pill">TypeScript</span>
-            <span class="tech-pill">JavaScript (ES6+)</span>
-            <span class="tech-pill">HTML5 / CSS3</span>
-            <span class="tech-pill">Bootstrap</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-title">◈ Backend & APIs</div>
-          <p class="skill-card-note">Designing clean API contracts, validating request boundaries, and isolating microservice failures.</p>
-          <div class="skill-tags-group">
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">Express.js</span>
-            <span class="tech-pill">RESTful APIs</span>
-            <span class="tech-pill">PHP / Laravel</span>
-            <span class="tech-pill">Java</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-title">◈ Databases & Caching</div>
-          <p class="skill-card-note">Optimizing query paths, indexing foreign keys, and using Redis to absorb high-concurrency read spikes.</p>
-          <div class="skill-tags-group">
-            <span class="tech-pill">MongoDB (NoSQL)</span>
-            <span class="tech-pill">MySQL</span>
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">Redis</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-title">◈ Tooling & Production Engineering</div>
-          <p class="skill-card-note">Automating tests, reproducible containers, and profiling slow code paths before shipping.</p>
-          <div class="skill-tags-group">
-            <span class="tech-pill">Docker</span>
-            <span class="tech-pill">Git / GitHub</span>
-            <span class="tech-pill">CI/CD & Jenkins</span>
-            <span class="tech-pill">AWS</span>
-            <span class="tech-pill">Clockwork Profiling</span>
-            <span class="tech-pill">System Design</span>
-          </div>
+        <!-- Mobile Viewport Switcher -->
+        <div class="mobile-pane-toggle">
+          <button class="toggle-btn" id="btnPaneTree" onclick="switchMobilePane('tree')">Tree</button>
+          <button class="toggle-btn active" id="btnPaneConsole" onclick="switchMobilePane('console')">Console</button>
         </div>
       </div>
-    </section>
 
-    <!-- Education -->
-    <section id="academics">
-      <div class="section-title-wrap">
-        <span class="section-eyebrow">Academic Background</span>
-        <h2 class="section-heading">Foundations from Panjab University</h2>
-      </div>
-
-      <div class="education-grid">
-        <div class="edu-card">
+      <!-- Main Split Pane Area -->
+      <div class="station-body">
+        
+        <!-- Left: Interactive Explorer & Skill Cluster Tree -->
+        <div class="station-sidebar" id="stationSidebar">
+          
+          <!-- Career Nodes -->
           <div>
-            <div class="edu-score">82%</div>
-            <div class="edu-degree">Master of Computer Applications (MCA)</div>
-            <div style="font-size:0.85rem; color:#cbd5e1; margin-top:4px;">First Class with Distinction</div>
+            <div class="sidebar-section-title">
+              <span>▶ PRODUCTION EXPERIENCE</span>
+              <span style="cursor:pointer; color:var(--terminal-cyan);" onclick="renderAllExperience()">ALL (3)</span>
+            </div>
+            <div class="tree-group">
+              <div class="tree-node active" id="node-all-exp" onclick="renderAllExperience()">
+                <span class="node-label"><span class="node-icon">📂</span> All Roles (Overview)</span>
+                <span class="node-tag">2.5+ Yrs</span>
+              </div>
+              <div class="tree-node" id="node-unstop" onclick="selectNode('unstop')">
+                <span class="node-label"><span class="node-icon">⚡</span> Unstop (SDE)</span>
+                <span class="node-tag">25+ APIs</span>
+              </div>
+              <div class="tree-node" id="node-jungleworks" onclick="selectNode('jungleworks')">
+                <span class="node-label"><span class="node-icon">📦</span> JungleWorks (SaaS)</span>
+                <span class="node-tag">15+ Ings</span>
+              </div>
+              <div class="tree-node" id="node-wtechy" onclick="selectNode('wtechy')">
+                <span class="node-label"><span class="node-icon">🌐</span> WTechy (Web Dev Exec)</span>
+                <span class="node-tag">CMS -40%</span>
+              </div>
+            </div>
           </div>
-          <div class="edu-meta">Panjab University • 2021 — 2024</div>
+
+          <!-- Academic Node -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>▶ ACADEMICS & DEGREES</span>
+              <span style="cursor:pointer; color:var(--terminal-cyan);" onclick="renderAllEducation()">ALL (2)</span>
+            </div>
+            <div class="tree-group">
+              <div class="tree-node" id="node-academics" onclick="renderAllEducation()">
+                <span class="node-label"><span class="node-icon">🎓</span> Panjab University</span>
+                <span class="node-tag">MCA & BCA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Documents / Resume Node -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>▶ DOCUMENTS</span>
+            </div>
+            <div class="tree-group">
+              <div class="tree-node" onclick="openResumeModal()">
+                <span class="node-label"><span class="node-icon">📄</span> Resume_ANJALI.pdf</span>
+                <span class="node-tag">PDF</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Skill Nodes -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>▶ FULL STACK SPECS</span>
+              <span style="cursor:pointer; color:var(--terminal-cyan);" onclick="renderAllSkills()">VIEW ALL</span>
+            </div>
+            <div class="skill-heatmap">
+              <span class="heat-chip" onclick="pingSkill('React.js')">React.js</span>
+              <span class="heat-chip" onclick="pingSkill('Next.js')">Next.js</span>
+              <span class="heat-chip" onclick="pingSkill('Node.js')">Node.js</span>
+              <span class="heat-chip" onclick="pingSkill('TypeScript')">TypeScript</span>
+              <span class="heat-chip" onclick="pingSkill('PostgreSQL')">PostgreSQL</span>
+              <span class="heat-chip" onclick="pingSkill('Clockwork')">Clockwork</span>
+              <span class="heat-chip" onclick="pingSkill('MongoDB')">MongoDB</span>
+              <span class="heat-chip" onclick="pingSkill('Redis')">Redis</span>
+              <span class="heat-chip" onclick="pingSkill('Docker')">Docker</span>
+              <span class="heat-chip" onclick="pingSkill('REST APIs')">REST APIs</span>
+              <span class="heat-chip" onclick="pingSkill('System Design')">System Design</span>
+            </div>
+          </div>
+
         </div>
 
-        <div class="edu-card">
-          <div>
-            <div class="edu-score">83.5%</div>
-            <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-            <div style="font-size:0.85rem; color:#cbd5e1; margin-top:4px;">First Class with Distinction</div>
+        <!-- Right: Real-Time Stream Terminal -->
+        <div class="station-console" id="stationConsole">
+          <div class="console-stream" id="consoleStream">
+            <!-- Dynamically injected logs -->
           </div>
-          <div class="edu-meta">Panjab University • 2018 — 2021</div>
+
+          <div class="console-input-row">
+            <span class="cli-prompt">anjali@sde:~$</span>
+            <input type="text" id="cliInputField" class="cli-field" placeholder="Type 'experience', 'resume', 'skills', or 'clear'..." autocomplete="off">
+          </div>
         </div>
+
       </div>
-    </section>
+
+    </div>
+
+    <!-- Infinite Marquee -->
+    <div class="infinite-scroller">
+      <div class="scroller-track">
+        <div class="stack-chip"><span></span> React.js</div>
+        <div class="stack-chip"><span></span> Next.js</div>
+        <div class="stack-chip"><span></span> Node.js</div>
+        <div class="stack-chip"><span></span> TypeScript</div>
+        <div class="stack-chip"><span></span> Express.js</div>
+        <div class="stack-chip"><span></span> Laravel & Clockwork</div>
+        <div class="stack-chip"><span></span> MongoDB (NoSQL)</div>
+        <div class="stack-chip"><span></span> PostgreSQL</div>
+        <div class="stack-chip"><span></span> Redis Caching</div>
+        <div class="stack-chip"><span></span> Microservices</div>
+        <div class="stack-chip"><span></span> REST API Security</div>
+        <div class="stack-chip"><span></span> Docker</div>
+        <div class="stack-chip"><span></span> AWS</div>
+        <!-- Duplicated for continuous animation -->
+        <div class="stack-chip"><span></span> React.js</div>
+        <div class="stack-chip"><span></span> Next.js</div>
+        <div class="stack-chip"><span></span> Node.js</div>
+        <div class="stack-chip"><span></span> TypeScript</div>
+        <div class="stack-chip"><span></span> Express.js</div>
+        <div class="stack-chip"><span></span> MongoDB (NoSQL)</div>
+        <div class="stack-chip"><span></span> PostgreSQL</div>
+        <div class="stack-chip"><span></span> Redis Caching</div>
+      </div>
+    </div>
 
   </div>
 
-  <!-- Permanent Mobile Quick Dock -->
-  <div class="mobile-quick-dock">
-    <a href="#experience" class="dock-link">Experience</a>
-    <a href="#skills" class="dock-link">Skills</a>
-    <a href="#academics" class="dock-link">Education</a>
-    <button class="dock-link" onclick="openResumeModal()" style="background:var(--accent); color:#fff; border:none; cursor:pointer;">Resume</button>
+  <!-- Permanent Mobile Fixed Bottom Dock -->
+  <div class="mobile-fixed-dock">
+    <div class="dock-item active" id="dock-hero" onclick="scrollToTop()">
+      <span class="dock-icon">✦</span>
+      <span>Home</span>
+    </div>
+    <div class="dock-item" id="dock-exp" onclick="activateSection('experience')">
+      <span class="dock-icon">⚡</span>
+      <span>Experience</span>
+    </div>
+    <div class="dock-item" id="dock-stack" onclick="activateSection('stack')">
+      <span class="dock-icon">◈</span>
+      <span>Stack</span>
+    </div>
+    <div class="dock-item" id="dock-edu" onclick="activateSection('education')">
+      <span class="dock-icon">🎓</span>
+      <span>Education</span>
+    </div>
+    <div class="dock-item" id="dock-res" onclick="openResumeModal()">
+      <span class="dock-icon">📄</span>
+      <span>Resume</span>
+    </div>
   </div>
 
   <!-- ========================================================
@@ -2170,10 +1432,11 @@ Save and push this file to your repository:
        ======================================================== -->
   <div class="resume-modal" id="resumeModal" onclick="if(event.target===this) closeResumeModal()">
     
-    <!-- 1. DESKTOP MODAL -->
+    <!-- 1. DESKTOP MODAL (Preserved exactly as is) -->
     <div class="modal-sheet-desktop">
       <div class="modal-topbar">
         <div class="modal-title">
+          <span>📄</span>
           <span>Resume_ANJALI_SDE.pdf</span>
         </div>
         <div class="modal-actions">
@@ -2183,22 +1446,22 @@ Save and push this file to your repository:
           <a href="Resume_ANJALI_SDE.pdf" target="_blank" class="modal-btn">
             New Tab ↗
           </a>
-          <button class="btn-close" onclick="closeResumeModal()">✕</button>
+          <button class="btn-close-modal" onclick="closeResumeModal()">✕</button>
         </div>
       </div>
-      <iframe class="modal-frame" src="Resume_ANJALI_SDE.pdf#toolbar=1"></iframe>
+      <iframe class="modal-frame" id="pdfFrame" src="Resume_ANJALI_SDE.pdf#toolbar=1"></iframe>
     </div>
 
-    <!-- 2. MOBILE APP-STYLE VIEWER WITH TOP-RIGHT DOWNLOAD -->
+    <!-- 2. MOBILE NATIVE APP-LIKE PDF VIEW (Top-Corner Download Button) -->
     <div class="mobile-resume-container">
       <div class="mobile-resume-nav">
-        <div style="display:flex; align-items:center; gap:10px;">
+        <div class="mobile-nav-left">
           <button class="mobile-close-btn" onclick="closeResumeModal()">✕</button>
           <span class="mobile-resume-title">Resume_ANJALI.pdf</span>
         </div>
-        <!-- Corner Download Button as requested -->
-        <a href="Resume_ANJALI_SDE.pdf" download="Resume_ANJALI_SDE.pdf" class="mobile-download-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <!-- Prominent Download Button in the Corner -->
+        <a href="Resume_ANJALI_SDE.pdf" download="Resume_ANJALI_SDE.pdf" class="mobile-download-action-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           <span>Download</span>
         </a>
       </div>
@@ -2207,16 +1470,16 @@ Save and push this file to your repository:
         <object class="mobile-pdf-embed" data="Resume_ANJALI_SDE.pdf" type="application/pdf">
           <div class="mobile-fallback-card">
             <div style="font-size: 2.8rem;">📄</div>
-            <div style="font-size: 1.2rem; font-weight:700; color:#fff;">Resume_ANJALI_SDE.pdf</div>
-            <p style="font-size: 0.88rem; color: #94a3b8; max-width: 320px; line-height: 1.5;">
+            <div style="font-size: 1.15rem; font-weight: 700;">Resume_ANJALI_SDE.pdf</div>
+            <p style="font-size: 0.85rem; color: #94a3b8; max-width: 320px; line-height: 1.5;">
               Full Stack Software Engineer (2.5+ Yrs Exp)<br>
-              React.js • Node.js • TypeScript • 25+ Secured APIs
+              React.js • Node.js • TypeScript • 25+ Secured APIs[cite: 3]
             </p>
-            <div class="pill-row" style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:8px;">
-              <a href="Resume_ANJALI_SDE.pdf" target="_blank" class="modal-btn" style="padding:10px 18px; background:var(--accent);">
-                <span>Open in Native Viewer ↗</span>
+            <div class="pill-row">
+              <a href="Resume_ANJALI_SDE.pdf" target="_blank" class="hero-resume-pill" style="height: 44px;">
+                <span>Open in Full Viewer ↗</span>
               </a>
-              <a href="Resume_ANJALI_SDE.pdf" download="Resume_ANJALI_SDE.pdf" class="modal-btn" style="padding:10px 18px;">
+              <a href="Resume_ANJALI_SDE.pdf" download="Resume_ANJALI_SDE.pdf" class="modal-btn" style="padding: 10px 16px;">
                 <span>Download PDF ⤓</span>
               </a>
             </div>
@@ -2228,6 +1491,101 @@ Save and push this file to your repository:
   </div>
 
   <script>
+    // --- Data Sources (Updated from anjai_resume.pdf) ---
+    const experiencesData = [
+      {
+        key: "unstop",
+        path: "experience/unstop.log",
+        title: "UNSTOP // SOFTWARE DEVELOPMENT ENGINEER",
+        meta: "STATUS 200 OK | Apr 2026 - Present | Delhi",
+        bullets: [
+          "API Security: Secured 25+ REST endpoints using Node.js, token validation, RBAC, authentication, authorization, and rate limiting, strengthening API security and mitigating unauthorized access risks[cite: 3].",
+          "Query Optimization: Profiled and optimized Laravel/MySQL queries using Clockwork, identifying bottlenecks and redundant database operations to improve API response efficiency and application performance[cite: 3].",
+          "Feature Engineering: Owned delivery of 8+ features using React.js, Node.js, and TypeScript from requirement analysis and API design through implementation, testing, and production rollout[cite: 3].",
+          "System Design: Designed scalable modules by defining API contracts, data flows, service boundaries, and integration patterns, improving maintainability across frontend, backend, and microservices[cite: 3]."
+        ],
+        tags: ["Node.js", "React.js", "TypeScript", "Clockwork", "Laravel/MySQL", "25+ Secured APIs", "RBAC"]
+      },
+      {
+        key: "jungleworks",
+        path: "experience/jungleworks.json",
+        title: "JUNGLE WORKS PVT LTD // SOFTWARE ENGINEER",
+        meta: "STATUS 200 OK | Nov 2024 - Mar 2026 | Mohali, Punjab",
+        bullets: [
+          "Integrations: Engineered 15+ third-party integrations using Node.js, REST APIs, payment gateways, notifications, and partner APIs, enabling reliable transactional workflows across SaaS systems (Jugnoo & Yelo)[cite: 3].",
+          "API Engineering: Designed and enhanced 20+ REST APIs using Node.js and Express.js with validation, authorization, and structured error handling, improving reliability and scalability[cite: 3].",
+          "Technical Leadership: Guided 5 developers through architecture discussions, code reviews, debugging, sprint planning, and mentoring, improving delivery consistency and code quality[cite: 3].",
+          "Production Debugging: Resolved 100+ production and pre-production issues using logs, database analysis, and root-cause investigation, improving system stability and operational reliability[cite: 3].",
+          "Performance Engineering: Delivered 30+ enhancements through query optimization, caching, and database tuning across Jugnoo and Yelo, improving application responsiveness and efficiency[cite: 3]."
+        ],
+        tags: ["Node.js", "Express.js", "MongoDB", "Redis", "Jugnoo & Yelo", "Team Lead (5)", "Payments"]
+      },
+      {
+        key: "wtechy",
+        path: "experience/wtechy.ts",
+        title: "WTECHY PVT LTD // WEB DEVELOPER EXECUTIVE",
+        meta: "STATUS 200 OK | Jun 2024 - Nov 2024 | Panchkula, Haryana",
+        bullets: [
+          "Frontend Engineering: Built 5+ responsive applications using React.js and Next.js with reusable components and SEO-focused architecture, improving maintainability and UI consistency[cite: 3].",
+          "Backend Engineering: Developed REST APIs and backend services using Node.js, MongoDB with authentication, session management, and optimized data flows[cite: 3].",
+          "CMS Integration: Integrated CMS solutions into client applications, reducing content update turnaround time by 40% and enabling independent content management[cite: 3].",
+          "Solution Delivery: Translated client requirements into technical specifications and production-ready implementations, delivering features across multiple web projects within defined requirements[cite: 3]."
+        ],
+        tags: ["Next.js", "React.js", "Node.js", "MongoDB", "PHP/Laravel", "CMS Integration"]
+      }
+    ];
+
+    const educationData = [
+      {
+        degree: "Master of Computer Applications (MCA)",
+        score: "82% (Distinction Honors)",
+        period: "2021 — 2024",
+        institution: "Panjab University, Chandigarh",
+        details: [
+          "Advanced study of Distributed Systems, Microservices, Algorithms, Operating Systems, and Database Architectures.",
+          "Graduated with 82% First Class distinction[cite: 3]."
+        ]
+      },
+      {
+        degree: "Bachelor of Computer Applications (BCA)",
+        score: "83.5% (Distinction Honors)",
+        period: "2018 — 2021",
+        institution: "Panjab University, Chandigarh",
+        details: [
+          "Core Foundations: Data Structures & Algorithms, Object-Oriented Programming, Database Systems (RDBMS), Web Architecture[cite: 3].",
+          "Graduated with distinction scoring 83.5% aggregate[cite: 3]."
+        ]
+      }
+    ];
+
+    // Updated full-stack technical directory
+    const allSkillsData = {
+      frontend: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "Bootstrap"],
+      backend: ["Node.js", "Express.js", "REST APIs", "Java", "PHP", "Laravel"],
+      databases: ["MongoDB (NoSQL)", "MySQL", "PostgreSQL", "Redis"],
+      devops: ["Git", "GitHub", "Docker", "Jenkins", "CI/CD Pipelines", "AWS", "Clockwork"],
+      core: ["System Design", "Microservices", "API Security", "Database Optimization", "Integrations", "Debugging", "Production Engineering", "SaaS Systems"]
+    };
+
+    const skillPings = {
+      'React.js': { type: 'FRONTEND', desc: 'Component virtualization, modular state, and SEO-focused architecture at Unstop & WTechy[cite: 3].' },
+      'Next.js': { type: 'FULL-STACK', desc: 'Hybrid server/client rendering and reusable UI components across 5+ web applications[cite: 3].' },
+      'Node.js': { type: 'BACKEND', desc: 'Asynchronous event-loops, 25+ secured endpoints, and 15+ third-party high-volume integrations[cite: 3].' },
+      'TypeScript': { type: 'LANGUAGE', desc: 'End-to-end typed contracts, interfaces, and compile-time data validation[cite: 3].' },
+      'PostgreSQL': { type: 'SQL DATASTORE', desc: 'Relational data modeling, ACID transactions, and optimized indexing schemes[cite: 3].' },
+      'Clockwork': { type: 'PROFILING & TOOLS', desc: 'Profiled and optimized Laravel/MySQL queries to eliminate bottlenecks and redundant calls[cite: 3].' },
+      'MongoDB': { type: 'NOSQL DB', desc: 'Optimized schema design, aggregation pipelines, and high-concurrency SaaS workflows[cite: 3].' },
+      'Redis': { type: 'CACHE LAYER', desc: 'Low-latency query caching, session stores, and distributed token verification[cite: 3].' },
+      'Docker': { type: 'CONTAINER', desc: 'Containerized microservices workloads, standard dev-to-prod pipeline parity[cite: 3].' },
+      'REST APIs': { type: 'SECURITY & SCALE', desc: 'Secured 25+ endpoints with RBAC, token validation, rate-limiting, and error handling[cite: 3].' },
+      'System Design': { type: 'ARCHITECTURE', desc: 'Defined service boundaries, contracts, data flows, and mentored 5 developers[cite: 3].' }
+    };
+
+    const stream = document.getElementById('consoleStream');
+    const pathLabel = document.getElementById('activePath');
+    const cliInput = document.getElementById('cliInputField');
+
+    // --- MODAL CONTROLS ---
     function openResumeModal() {
       document.getElementById('resumeModal').classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -2241,6 +1599,354 @@ Save and push this file to your repository:
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeResumeModal();
     });
+
+    // --- RENDER ALL EXPERIENCES ---
+    function renderAllExperience() {
+      document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('active'));
+      const activeNode = document.getElementById('node-all-exp');
+      if (activeNode) activeNode.classList.add('active');
+
+      stream.innerHTML = '';
+      pathLabel.innerText = 'experience/all.log';
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+
+      let cardsHtml = experiencesData.map(exp => `
+        <div class="log-card">
+          <div class="log-header cyan">
+            <span>${exp.title}</span>
+            <span>${exp.meta}</span>
+          </div>
+          <div style="margin-top: 8px;">
+            ${exp.bullets.map(b => `<div class="bullet-row">${b}</div>`).join('')}
+          </div>
+          <div class="tag-container">
+            ${exp.tags.map(t => `<span class="console-tag">${t}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      entry.innerHTML = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>cat /var/system/experience/*.log --chronological</span>
+        </div>
+        ${cardsHtml}
+      `;
+
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- RENDER SINGLE EXPERIENCE NODE ---
+    function selectNode(key) {
+      document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('active'));
+      const activeNode = document.getElementById(`node-${key}`);
+      if (activeNode) activeNode.classList.add('active');
+
+      const data = experiencesData.find(e => e.key === key);
+      if (!data) return;
+
+      stream.innerHTML = '';
+      pathLabel.innerText = data.path;
+
+      let bulletsHtml = data.bullets.map(b => `<div class="bullet-row">${b}</div>`).join('');
+      let tagsHtml = data.tags.map(t => `<span class="console-tag">${t}</span>`).join('');
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      entry.innerHTML = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>cat /var/system/${data.path}</span>
+        </div>
+        <div class="log-card">
+          <div class="log-header cyan">
+            <span>${data.title}</span>
+            <span>${data.meta}</span>
+          </div>
+          <div style="margin-top: 8px;">${bulletsHtml}</div>
+          <div class="tag-container">${tagsHtml}</div>
+        </div>
+      `;
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- RENDER ALL EDUCATION ---
+    function renderAllEducation() {
+      document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('active'));
+      const activeNode = document.getElementById('node-academics');
+      if (activeNode) activeNode.classList.add('active');
+
+      stream.innerHTML = '';
+      pathLabel.innerText = 'academics/panjab_university.edu';
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+
+      let cardsHtml = educationData.map(edu => `
+        <div class="log-card">
+          <div class="log-header green">
+            <span>${edu.degree.toUpperCase()}</span>
+            <span>${edu.score}</span>
+          </div>
+          <div style="color: #94a3b8; font-size: 0.76rem; margin-bottom: 8px;">
+            ${edu.institution} • [${edu.period}]
+          </div>
+          <div style="margin-top: 4px;">
+            ${edu.details.map(d => `<div class="bullet-row">${d}</div>`).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      entry.innerHTML = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>cat /etc/academics/panjab_university.edu --all</span>
+        </div>
+        ${cardsHtml}
+      `;
+
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- RENDER ALL SKILLS MATRIX ---
+    function renderAllSkills() {
+      document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('active'));
+      stream.innerHTML = '';
+      pathLabel.innerText = 'system/skills.env';
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      
+      let html = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>cat /etc/system/skills.env --verbose</span>
+        </div>
+        <div class="log-card">
+          <div class="log-header amber">
+            <span>FULL STACK SYSTEM COMPETENCIES</span>
+            <span>2.5+ YEARS EXP</span>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ FRONTEND TECHNOLOGIES</div>
+            <div class="tag-container">
+              ${allSkillsData.frontend.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ BACKEND & MICROSERVICES</div>
+            <div class="tag-container">
+              ${allSkillsData.backend.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ DATABASES & CACHING</div>
+            <div class="tag-container">
+              ${allSkillsData.databases.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ DEVOPS, CLOUD & TOOLS</div>
+            <div class="tag-container">
+              ${allSkillsData.devops.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ CORE ENGINEERING FOUNDATIONS</div>
+            <div class="tag-container">
+              ${allSkillsData.core.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+
+      entry.innerHTML = html;
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- PING INDIVIDUAL SKILL ---
+    function pingSkill(skillName) {
+      document.querySelectorAll('.heat-chip').forEach(c => {
+        if (c.innerText.trim() === skillName) c.classList.add('active');
+        else c.classList.remove('active');
+      });
+
+      const info = skillPings[skillName] || { type: 'RUNTIME', desc: 'Production verified competency.' };
+      pathLabel.innerText = `skills/${skillName.toLowerCase().replace(/[^a-z0-9]/g, '')}.ping`;
+
+      stream.innerHTML = '';
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      entry.innerHTML = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>ping -c 1 --telemetry ${skillName}</span>
+        </div>
+        <div class="log-card">
+          <div class="log-header green">
+            <span>64 bytes from runtime: [${skillName}]</span>
+            <span>TYPE: ${info.type}</span>
+          </div>
+          <div style="color: #cbd5e1; font-size: 0.8rem; margin-top: 6px; line-height: 1.5;">↳ ${info.desc}</div>
+        </div>
+      `;
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- MOBILE VIEWPORT SWITCHER ---
+    function switchMobilePane(pane) {
+      const sidebar = document.getElementById('stationSidebar');
+      const consolePane = document.getElementById('stationConsole');
+      const btnTree = document.getElementById('btnPaneTree');
+      const btnConsole = document.getElementById('btnPaneConsole');
+
+      if (pane === 'tree') {
+        sidebar.style.display = 'flex';
+        consolePane.style.display = 'none';
+        btnTree.classList.add('active');
+        btnConsole.classList.remove('active');
+      } else {
+        sidebar.style.display = 'none';
+        consolePane.style.display = 'flex';
+        btnConsole.classList.add('active');
+        btnTree.classList.remove('active');
+        stream.scrollTop = 0;
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      highlightDock('dock-hero');
+    }
+
+    function openConsoleTab() {
+      const ws = document.getElementById('sec-workstation');
+      ws.scrollIntoView({ behavior: 'smooth' });
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+      cliInput.focus();
+    }
+
+    // --- UNIFIED NAVIGATION ROUTER ---
+    function activateSection(secKey) {
+      const ws = document.getElementById('sec-workstation');
+      ws.scrollIntoView({ behavior: 'smooth' });
+
+      if (secKey === 'experience') {
+        renderAllExperience();
+        highlightDock('dock-exp');
+      } else if (secKey === 'stack' || secKey === 'skills') {
+        renderAllSkills();
+        highlightDock('dock-stack');
+      } else if (secKey === 'education' || secKey === 'academics') {
+        renderAllEducation();
+        highlightDock('dock-edu');
+      }
+    }
+
+    function highlightDock(dockId) {
+      document.querySelectorAll('.dock-item').forEach(d => d.classList.remove('active'));
+      const target = document.getElementById(dockId);
+      if (target) target.classList.add('active');
+    }
+
+    // --- CLI COMMAND PROCESSOR ---
+    cliInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = cliInput.value.trim().toLowerCase();
+        if (!val) return;
+
+        stream.innerHTML = '';
+
+        const row = document.createElement('div');
+        row.className = 'log-command-line';
+        row.innerHTML = `<span class="log-prompt">➜</span><span>${cliInput.value}</span>`;
+        stream.appendChild(row);
+
+        if (val === 'clear') {
+          stream.innerHTML = '';
+        } else if (val === 'skills' || val === 'stack') {
+          renderAllSkills();
+        } else if (val === 'experience' || val === 'all') {
+          renderAllExperience();
+        } else if (val === 'education' || val === 'academics') {
+          renderAllEducation();
+        } else if (val === 'resume' || val === 'cv') {
+          openResumeModal();
+          const res = document.createElement('div');
+          res.className = 'log-card';
+          res.innerHTML = `<span style="color:var(--terminal-green); font-size:0.8rem;">Opening Resume_ANJALI_SDE.pdf viewer...</span>`;
+          stream.appendChild(res);
+        } else if (experiencesData.some(e => e.key === val)) {
+          selectNode(val);
+        } else if (val === 'help') {
+          const res = document.createElement('div');
+          res.className = 'log-card';
+          res.innerHTML = `<span style="color:var(--terminal-amber); font-size:0.8rem;">Recognized: 'experience', 'education', 'skills', 'resume', 'unstop', 'jungleworks', 'wtechy', 'contact', 'clear'</span>`;
+          stream.appendChild(res);
+        } else if (val === 'contact') {
+          const res = document.createElement('div');
+          res.className = 'log-card';
+          res.innerHTML = `<span style="color:var(--terminal-green); font-size:0.8rem;">Email: anjalicjm06@gmail.com | Phone: +91-8307376974 | LinkedIn: linkedin.com/in/anjali | GitHub: github.com/anjali</span>`;
+          stream.appendChild(res);
+        } else {
+          const res = document.createElement('div');
+          res.className = 'log-card';
+          res.style.color = '#f87171';
+          res.innerText = `Command '${val}' not recognized. Type 'help' for options.`;
+          stream.appendChild(res);
+        }
+
+        cliInput.value = '';
+        stream.scrollTop = stream.scrollHeight;
+      }
+    });
+
+    // Mobile Dock Scroll Detection
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const wsTop = document.getElementById('sec-workstation').offsetTop - 200;
+      if (scrollY < wsTop) {
+        highlightDock('dock-hero');
+      }
+    });
+
+    // Initial render
+    renderAllExperience();
   </script>
 </body>
 </html>

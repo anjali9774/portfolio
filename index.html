@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Anjali — Full Stack Systems Engineer</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-studio: #a4b3c6;
+      --card-surface: #9db0c5;
+      --royal-blue: #1d4ed8;
+      --royal-blue-light: #3b82f6;
+      --cobalt-dark: #0f172a;
+      --text-white: #ffffff;
+      --text-dim: rgba(255, 255, 255, 0.75);
+      --ide-bg: #090d16;
+      --ide-sidebar: #0e1422;
+      --terminal-green: #10b981;
+      --terminal-cyan: #38bdf8;
+      --terminal-amber: #f59e0b;
+      --terminal-purple: #c084fc;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #899ab0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: clamp(8px, 2.5vw, 28px);
+      padding-bottom: 96px;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Outer Studio Frame mirroring the Dribbble Showcase */
+    .studio-canvas {
+      position: relative;
+      width: 100%;
+      max-width: 1260px;
+      background: linear-gradient(155deg, #a7b7cc 0%, #99adc2 100%);
+      border-radius: clamp(16px, 3.5vw, 36px);
+      box-shadow: 0 40px 100px -20px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
+      padding: clamp(16px, 3.5vw, 48px);
+      display: flex;
+      flex-direction: column;
+      gap: clamp(20px, 3.5vw, 42px);
+      overflow: hidden;
+    }
+
+    /* Ambient Background Glows */
+    .ambient-circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .circle-1 {
+      top: -10%;
+      right: 10%;
+      width: clamp(240px, 38vw, 480px);
+      height: clamp(240px, 38vw, 480px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .circle-2 {
+      bottom: 20%;
+      left: -5%;
+      width: clamp(260px, 40vw, 500px);
+      height: clamp(260px, 40vw, 500px);
+      background: rgba(29, 78, 216, 0.2);
+    }
+
+    /* Top Navigation bar */
+    nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: var(--royal-blue);
+      font-size: 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+    }
+
+    .nav-links-desktop {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.5vw, 32px);
+    }
+
+    .nav-link {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--text-white);
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--royal-blue);
+      border-radius: 50%;
+    }
+
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-resume {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(8px);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .btn-resume:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .btn-connect {
+      background: var(--cobalt-dark);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-connect:hover {
+      background: var(--royal-blue);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Grid Layout */
+    .hero-grid {
+      position: relative;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1fr;
+      align-items: center;
+      gap: clamp(16px, 3vw, 36px);
+    }
+
+    .col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-name {
+      font-size: clamp(2.8rem, 5.2vw, 5.2rem);
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 0.95;
+      letter-spacing: -2px;
+    }
+
+    .blue-dash {
+      width: 50px;
+      height: 6px;
+      background: var(--royal-blue);
+      border-radius: 4px;
+    }
+
+    /* ENLARGED CONTACT DOCK */
+    .social-dock {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .social-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    .social-btn:hover {
+      background: var(--royal-blue);
+      border-color: #60a5fa;
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(29, 78, 216, 0.4);
+    }
+
+    .social-btn:hover svg {
+      transform: scale(1.1);
+    }
+
+    .hero-resume-pill {
+      height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .hero-resume-pill svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+    }
+
+    .hero-resume-pill:hover {
+      background: var(--royal-blue);
+      border-color: #93c5fd;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(29, 78, 216, 0.35);
+    }
+
+    /* Center Column: Portrait Art & Interactive Avatar */
+    .col-center {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 360px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: min(100%, 280px);
+      height: 350px;
+      border-radius: 140px 140px 24px 24px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(29, 78, 216, 0.2) 100%);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 20px;
+      box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.25);
+      overflow: hidden;
+    }
+
+    .avatar-svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .live-status-pill {
+      position: absolute;
+      bottom: 18px;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      padding: 6px 14px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      white-space: nowrap;
+    }
+
+    .pulse-green {
+      width: 8px;
+      height: 8px;
+      background: var(--terminal-green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--terminal-green);
+      animation: pulse 1.8s infinite;
+    }
+
+    .status-text {
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.8); opacity: 0.4; }
+    }
+
+    /* Right Column: Editorial Intro */
+    .col-right {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .label-intro {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-bio-title {
+      font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.25;
+    }
+
+    .hero-bio-para {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .btn-story {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-top: 4px;
+      cursor: pointer;
+      transition: gap 0.2s ease;
+    }
+    .btn-story:hover {
+      gap: 14px;
+      color: var(--royal-blue);
+    }
+
+    /* ========================================================
+       FULLY RESPONSIVE DEV-STATION (FUSED TREE & TERMINAL)
+       ======================================================== */
+    .devstation-workspace {
+      position: relative;
+      z-index: 10;
+      background: var(--ide-bg);
+      border-radius: clamp(16px, 2.5vw, 24px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 25px 80px -15px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+      width: 100%;
+    }
+
+    /* Title Bar */
+    .station-titlebar {
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px clamp(12px, 2.5vw, 20px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .titlebar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .traffic-dots {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .station-breadcrumbs {
+      font-size: clamp(0.7rem, 2vw, 0.76rem);
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+    .station-breadcrumbs span.active {
+      color: var(--terminal-cyan);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Mobile Pane Switcher */
+    .mobile-pane-toggle {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .toggle-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .toggle-btn.active {
+      background: var(--royal-blue);
+      color: #fff;
+    }
+
+    /* Workspace Body: Split-Pane Grid */
+    .station-body {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: 480px;
+      width: 100%;
+    }
+
+    /* Left Pane: Interactive Explorer Tree & Skill Matrix */
+    .station-sidebar {
+      background: var(--ide-sidebar);
+      border-right: 1px solid var(--border-subtle);
+      padding: clamp(14px, 2vw, 18px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      overflow-y: auto;
+      max-height: 560px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar-section-title {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #64748b;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tree-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .tree-node {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      min-height: 38px;
+    }
+    .tree-node:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+    }
+    .tree-node.active {
+      background: rgba(29, 78, 216, 0.2);
+      border-color: rgba(59, 130, 246, 0.4);
+      color: #93c5fd;
+    }
+
+    .node-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .node-icon {
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .node-tag {
+      font-size: 0.68rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #94a3b8;
+      flex-shrink: 0;
+    }
+
+    /* Live Skill Heatmap Chips */
+    .skill-heatmap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .heat-chip {
+      font-size: 0.72rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .heat-chip:hover, .heat-chip.active {
+      background: var(--royal-blue);
+      border-color: #60a5fa;
+      color: #fff;
+    }
+
+    /* Right Pane: Real-Time Stream Terminal */
+    .station-console {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--ide-bg);
+      position: relative;
+      min-width: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .console-stream {
+      padding: clamp(14px, 2.5vw, 22px);
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 540px;
+      font-size: clamp(0.76rem, 2vw, 0.82rem);
+      line-height: 1.65;
+      -webkit-overflow-scrolling: touch;
+      flex: 1;
+    }
+
+    .log-entry {
+      margin-bottom: 20px;
+      animation: fadeIn 0.25s ease forwards;
+      width: 100%;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .log-command-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #f1f5f9;
+      font-weight: 600;
+      margin-bottom: 8px;
+      word-break: break-all;
+    }
+    .log-prompt {
+      color: var(--terminal-green);
+      flex-shrink: 0;
+    }
+
+    .log-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: clamp(12px, 2.5vw, 16px);
+      margin-left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: anywhere;
+      margin-bottom: 14px;
+    }
+
+    .log-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .log-header {
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .log-header.cyan { color: var(--terminal-cyan); }
+    .log-header.green { color: var(--terminal-green); }
+    .log-header.amber { color: var(--terminal-amber); }
+
+    .bullet-row {
+      color: #cbd5e1;
+      font-size: clamp(0.74rem, 1.8vw, 0.8rem);
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+    .bullet-row::before {
+      content: '↳';
+      position: absolute;
+      left: 0;
+      color: var(--terminal-cyan);
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .console-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.68rem;
+      color: #93c5fd;
+      padding: 3px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .skills-category-block {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .skills-cat-title {
+      font-size: 0.72rem;
+      color: var(--terminal-amber);
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Console Command Prompt Input Row */
+    .console-input-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: clamp(10px, 2vw, 12px) clamp(12px, 2.5vw, 18px);
+      background: rgba(0, 0, 0, 0.4);
+      border-top: 1px solid var(--border-subtle);
+      width: 100%;
+    }
+
+    .cli-prompt {
+      color: var(--terminal-green);
+      font-weight: 700;
+      font-size: 0.86rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cli-field {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      min-width: 0;
+    }
+
+    /* Infinite Scrolling Marquee */
+    .infinite-scroller {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    }
+
+    .scroller-track {
+      display: flex;
+      gap: 14px;
+      width: max-content;
+      animation: infiniteMarquee 32s linear infinite;
+    }
+    .scroller-track:hover {
+      animation-play-state: paused;
+    }
+
+    .stack-chip {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-white);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stack-chip span {
+      width: 6px;
+      height: 6px;
+      background: var(--royal-blue);
+      border-radius: 50%;
+    }
+
+    @keyframes infiniteMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ========================================================
+       PERMANENT MOBILE FIXED BOTTOM DOCK (iOS STYLE)
+       ======================================================== */
+    .mobile-fixed-dock {
+      display: none;
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7);
+      border-radius: 999px;
+      padding: 5px 8px;
+      align-items: center;
+      gap: 3px;
+      width: min(95vw, 420px);
+      justify-content: space-between;
+    }
+
+    .dock-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 6px 8px;
+      border-radius: 999px;
+      transition: all 0.2s;
+      cursor: pointer;
+      flex: 1;
+      text-align: center;
+    }
+
+    .dock-item .dock-icon {
+      font-size: 0.92rem;
+    }
+
+    .dock-item.active, .dock-item:active {
+      color: #fff;
+      background: var(--royal-blue);
+    }
+
+    /* ========================================================
+       MODAL RESUME VIEWER (BUILT-IN)
+       ======================================================== */
+    .resume-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(14px);
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: clamp(12px, 2vw, 24px);
+    }
+
+    .resume-modal.active {
+      display: flex;
+    }
+
+    .modal-sheet {
+      width: min(100%, 960px);
+      height: min(100%, 88vh);
+      background: #0f1420;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+    }
+
+    .modal-topbar {
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.86rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .modal-btn:hover {
+      background: var(--royal-blue);
+      border-color: #60a5fa;
+    }
+
+    .btn-close-modal {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+    }
+    .btn-close-modal:hover {
+      color: #fff;
+    }
+
+    .modal-frame {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #1a202c;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+      .col-center {
+        grid-column: span 2;
+        order: -1;
+        height: 320px;
+      }
+      .avatar-wrapper {
+        height: 310px;
+        width: 240px;
+      }
+      .station-body {
+        grid-template-columns: 270px 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 6px;
+        padding-bottom: 84px;
+      }
+      .studio-canvas {
+        padding: 16px 12px;
+        border-radius: 18px;
+        gap: 20px;
+      }
+      .nav-links-desktop {
+        display: none;
+      }
+      .btn-resume {
+        display: none; /* Accessible in the hero dock and mobile bottom bar */
+      }
+      .mobile-fixed-dock {
+        display: flex;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 18px;
+      }
+      .col-left, .col-right {
+        align-items: center;
+      }
+      .col-center {
+        grid-column: span 1;
+        height: 260px;
+      }
+      .avatar-wrapper {
+        height: 250px;
+        width: 200px;
+      }
+      .blue-dash {
+        margin: 2px auto;
+      }
+      .social-dock {
+        margin: 6px auto 0;
+        justify-content: center;
+      }
+      
+      .mobile-pane-toggle {
+        display: flex;
+      }
+      .station-body {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .station-sidebar {
+        max-height: 440px;
+        display: none;
+        border-right: none;
+        padding: 14px;
+      }
+      .station-console {
+        display: flex;
+        min-height: auto;
+      }
+      .console-stream {
+        max-height: 480px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="studio-canvas" id="sec-hero">
+    <div class="ambient-circle circle-1"></div>
+    <div class="ambient-circle circle-2"></div>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="brand-mark">A.</div>
+      <div class="nav-links-desktop">
+        <span class="nav-link active" onclick="activateSection('experience')">Experience</span>
+        <span class="nav-link" onclick="activateSection('stack')">Tech Stack</span>
+        <span class="nav-link" onclick="activateSection('skills')">Skills Heatmap</span>
+        <span class="nav-link" onclick="activateSection('academics')">Academics</span>
+      </div>
+      <div class="nav-right-actions">
+        <button class="btn-resume" onclick="openResumeModal()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Resume
+        </button>
+        <a href="mailto:anjalicjm06@gmail.com" class="btn-connect">Get in touch</a>
+      </div>
+    </nav>
+
+    <!-- Main Editorial Hero (Dribbble Layout) -->
+    <div class="hero-grid">
+      
+      <!-- Left Column -->
+      <div class="col-left">
+        <h1 class="hero-name">Anjali<br>SDE.</h1>
+        <div class="blue-dash"></div>
+        
+        <!-- ENLARGED ICONS AND RESUME BUTTON -->
+        <div class="social-dock">
+          <!-- LinkedIn Icon Button -->
+          <a href="https://linkedin.com/in/anjali" target="_blank" class="social-btn" title="LinkedIn Profile">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 0 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74v-8.37H5.06v8.37h2.8z"/></svg>
+          </a>
+
+          <!-- Email Icon Button -->
+          <a href="mailto:anjalicjm06@gmail.com" class="social-btn" title="Send Email">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+
+          <!-- Phone Icon Button -->
+          <a href="tel:+918307376974" class="social-btn" title="Call +91-8307376974">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </a>
+
+          <!-- Resume Action Pill -->
+          <button class="hero-resume-pill" onclick="openResumeModal()">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <span>Resume.pdf</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Center Stylized Portrait -->
+      <div class="col-center">
+        <div class="avatar-wrapper">
+          <svg class="avatar-svg" viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="400" fill="transparent"/>
+            <path d="M120 100 C120 60, 200 60, 200 100 Z" fill="#1d4ed8"/>
+            <path d="M105 95 C140 85, 215 90, 235 105 C210 115, 120 115, 105 95 Z" fill="#2563eb"/>
+            <path d="M130 105 C130 150, 190 150, 190 105 Z" fill="#e2b997"/>
+            <path d="M145 135 L145 170 L175 170 L175 135 Z" fill="#d4a37f"/>
+            <path d="M70 170 C100 150, 220 150, 250 170 L280 400 L40 400 Z" fill="#1d4ed8"/>
+            <path d="M125 170 L160 260 L195 170 C185 210, 135 210, 125 170 Z" fill="#0f172a"/>
+            <path d="M160 265 L160 380 M130 310 L160 340 L190 310" stroke="rgba(255,255,255,0.25)" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+
+          <div class="live-status-pill">
+            <div class="pulse-green"></div>
+            <div class="status-text">SDE  @ UNSTOP (DELHI)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-right">
+        <span class="label-intro">INTRODUCING</span>
+        <h2 class="hero-bio-title">Full Stack Engineer.<br>Specialized in Scalable Systems.</h2>
+        <p class="hero-bio-para">
+          Over 2.5+ years designing enterprise SaaS web platforms, hardening API gateways, and building microservices across React, Next.js, Node.js, and TypeScript.
+        </p>
+        <a class="btn-story" onclick="activateSection('experience')">
+          Launch live workstation <span>→</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ========================================================
+         FULLY RESPONSIVE DEV-STATION
+         ======================================================== -->
+    <div class="devstation-workspace" id="sec-workstation">
+      
+      <!-- Top Window Bar -->
+      <div class="station-titlebar">
+        <div class="titlebar-left">
+          <div class="traffic-dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="station-breadcrumbs">
+            <span>anjali-core</span> / <span id="activePath" class="active">experience/all.log</span>
+          </div>
+        </div>
+
+        <!-- Mobile Viewport Switcher -->
+        <div class="mobile-pane-toggle">
+          <button class="toggle-btn" id="btnPaneTree" onclick="switchMobilePane('tree')">Tree</button>
+          <button class="toggle-btn active" id="btnPaneConsole" onclick="switchMobilePane('console')">Console</button>
+        </div>
+      </div>
+
+      <!-- Main Split Pane Area -->
+      <div class="station-body">
+        
+        <!-- Left: Interactive Explorer & Skill Cluster Tree -->
+        <div class="station-sidebar" id="stationSidebar">
+          
+          <!-- Career Nodes -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>▶ PRODUCTION EXPERIENCE</span>
+              <span style="cursor:pointer; color:var(--terminal-cyan);" onclick="renderAllExperience()">ALL (3)</span>
+            </div>
+            <div class="tree-group">
+              <div class="tree-node active" id="node-all-exp" onclick="renderAllExperience()">
+                <span class="node-label"><span class="node-icon">📂</span> All Roles (Overview)</span>
+                <span class="node-tag">2.5+ Yrs</span>
+              </div>
+              <div class="tree-node" id="node-unstop" onclick="selectNode('unstop')">
+                <span class="node-label"><span class="node-icon">⚡</span> Unstop (SDE)</span>
+                <span class="node-tag">2026-Pres</span>
+              </div>
+              <div class="tree-node" id="node-jungleworks" onclick="selectNode('jungleworks')">
+                <span class="node-label"><span class="node-icon">📦</span> JungleWorks (SaaS)</span>
+                <span class="node-tag">15+ Ings</span>
+              </div>
+              <div class="tree-node" id="node-wtechy" onclick="selectNode('wtechy')">
+                <span class="node-label"><span class="node-icon">🌐</span> WTechy (Full Stack)</span>
+                <span class="node-tag">CMS -40%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Node -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>▶ ACADEMICS & DEGREES</span>
+              <span style="cursor:pointer; color:var(--terminal-cyan);" onclick="renderAllEducation()">ALL (2)</span>
+            </div>
+            <div class="tree-group">
+              <div class="tree-node" id="node-academics" onclick="renderAllEducation()">
+                <span class="node-label"><span class="node-icon">🎓</span> Panjab University</span>
+                <span class="node-tag">MCA & BCA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Documents / Resume Node -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>▶ DOCUMENTS</span>
+            </div>
+            <div class="tree-group">
+              <div class="tree-node" onclick="openResumeModal()">
+                <span class="node-label"><span class="node-icon">📄</span> Resume_ANJALI.pdf</span>
+                <span class="node-tag">PDF</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Skill Nodes -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>▶ FULL STACK SPECS</span>
+              <span style="cursor:pointer; color:var(--terminal-cyan);" onclick="renderAllSkills()">VIEW ALL</span>
+            </div>
+            <div class="skill-heatmap">
+              <span class="heat-chip" onclick="pingSkill('React.js')">React.js</span>
+              <span class="heat-chip" onclick="pingSkill('Next.js')">Next.js</span>
+              <span class="heat-chip" onclick="pingSkill('Node.js')">Node.js</span>
+              <span class="heat-chip" onclick="pingSkill('TypeScript')">TypeScript</span>
+              <span class="heat-chip" onclick="pingSkill('MongoDB')">MongoDB</span>
+              <span class="heat-chip" onclick="pingSkill('Redis')">Redis</span>
+              <span class="heat-chip" onclick="pingSkill('Docker')">Docker</span>
+              <span class="heat-chip" onclick="pingSkill('REST APIs')">REST APIs</span>
+              <span class="heat-chip" onclick="pingSkill('System Design')">System Design</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Real-Time Stream Terminal -->
+        <div class="station-console" id="stationConsole">
+          <div class="console-stream" id="consoleStream">
+            <!-- Dynamically injected logs -->
+          </div>
+
+          <div class="console-input-row">
+            <span class="cli-prompt">anjali@sde:~$</span>
+            <input type="text" id="cliInputField" class="cli-field" placeholder="Type 'experience', 'resume', 'skills', or 'clear'..." autocomplete="off">
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Infinite Marquee -->
+    <div class="infinite-scroller">
+      <div class="scroller-track">
+        <div class="stack-chip"><span></span> React.js</div>
+        <div class="stack-chip"><span></span> Next.js</div>
+        <div class="stack-chip"><span></span> Node.js</div>
+        <div class="stack-chip"><span></span> TypeScript</div>
+        <div class="stack-chip"><span></span> Express.js</div>
+        <div class="stack-chip"><span></span> MongoDB (NoSQL)</div>
+        <div class="stack-chip"><span></span> Redis Caching</div>
+        <div class="stack-chip"><span></span> Microservices</div>
+        <div class="stack-chip"><span></span> REST API Security</div>
+        <div class="stack-chip"><span></span> Docker</div>
+        <div class="stack-chip"><span></span> AWS</div>
+        <!-- Duplicated for continuous animation -->
+        <div class="stack-chip"><span></span> React.js</div>
+        <div class="stack-chip"><span></span> Next.js</div>
+        <div class="stack-chip"><span></span> Node.js</div>
+        <div class="stack-chip"><span></span> TypeScript</div>
+        <div class="stack-chip"><span></span> Express.js</div>
+        <div class="stack-chip"><span></span> MongoDB (NoSQL)</div>
+        <div class="stack-chip"><span></span> Redis Caching</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Permanent Mobile Fixed Bottom Dock -->
+  <div class="mobile-fixed-dock">
+    <div class="dock-item active" id="dock-hero" onclick="scrollToTop()">
+      <span class="dock-icon">✦</span>
+      <span>Home</span>
+    </div>
+    <div class="dock-item" id="dock-exp" onclick="activateSection('experience')">
+      <span class="dock-icon">⚡</span>
+      <span>Experience</span>
+    </div>
+    <div class="dock-item" id="dock-stack" onclick="activateSection('stack')">
+      <span class="dock-icon">◈</span>
+      <span>Stack</span>
+    </div>
+    <div class="dock-item" id="dock-edu" onclick="activateSection('education')">
+      <span class="dock-icon">🎓</span>
+      <span>Education</span>
+    </div>
+    <div class="dock-item" id="dock-res" onclick="openResumeModal()">
+      <span class="dock-icon">📄</span>
+      <span>Resume</span>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       RESUME VIEWER MODAL
+       ======================================================== -->
+  <div class="resume-modal" id="resumeModal" onclick="if(event.target===this) closeResumeModal()">
+    <div class="modal-sheet">
+      <div class="modal-topbar">
+        <div class="modal-title">
+          <span>📄</span>
+          <span>Resume_ANJALI_SDE.pdf</span>
+        </div>
+        <div class="modal-actions">
+          <a href="Resume_ANJALI_SDE.pdf" download="Resume_ANJALI_SDE.pdf" class="modal-btn">
+            Download PDF ⤓
+          </a>
+          <a href="Resume_ANJALI_SDE.pdf" target="_blank" class="modal-btn">
+            New Tab ↗
+          </a>
+          <button class="btn-close-modal" onclick="closeResumeModal()">✕</button>
+        </div>
+      </div>
+      <!-- Embedded PDF viewer (Points directly to your local file) -->
+      <iframe class="modal-frame" id="pdfFrame" src="Resume_ANJALI_SDE.pdf"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // --- Data Sources (Strictly verified from resume) ---
+    const experiencesData = [
+      {
+        key: "unstop",
+        path: "experience/unstop.log",
+        title: "UNSTOP // SOFTWARE DEVELOPMENT ENGINEER 1",
+        meta: "STATUS 200 OK | Apr 2026 - Present | Delhi",
+        bullets: [
+          "Strengthened API security across 10+ endpoints by hardening authentication and authorization flows, implementing token validation, rate-limiting, and RBAC to reduce vulnerability exposure.",
+          "Built and shipped 8+ new features end-to-end, from requirement analysis and API design to frontend integration, using React.js, Node.js, and TypeScript collaborating closely with product and QA squads[cite: 1].",
+          "Contributed to system design discussions for new modules, evaluating scalability, data flow, microservices boundaries, and API structure to support long-term maintainability[cite: 1].",
+          "Identified and resolved 25+ bugs across the codebase through root-cause analysis, debugging, and regression testing, improving stability and reducing repeat issues[cite: 1]."
+        ],
+        tags: ["React.js", "TypeScript", "Node.js", "RBAC", "API Security", "Microservices"]
+      },
+      {
+        key: "jungleworks",
+        path: "experience/jungleworks.json",
+        title: "JUNGLEWORKS // SOFTWARE ENGINEER (JUGNOO & YELO)",
+        meta: "STATUS 200 OK | Nov 2024 - Mar 2026 | Mohali, Punjab",
+        bullets: [
+          "Implemented and maintained 15+ third-party integrations including payment gateways, notification services, and partner APIs, supporting high-volume transactional workflows across microservices[cite: 1].",
+          "Designed and enhanced 20+ RESTful APIs with request validation, role-based authorization, and structured error handling, improving reliability, scalability, and response consistency[cite: 1].",
+          "Led a team of 5 developers by planning sprints, conducting code reviews, and mentoring juniors on system design and best practices, ensuring on-time delivery and consistent code quality[cite: 1].",
+          "Resolved 100+ production and pre-production issues through debugging, log analysis, and root cause investigation, significantly improving application stability and uptime[cite: 1].",
+          "Delivered 30+ feature enhancements and performance optimizations across Jugnoo and Yelo, including query optimization, caching strategies, and database tuning[cite: 1]."
+        ],
+        tags: ["Node.js", "Express.js", "MongoDB", "Redis", "Team Lead (5)", "Payment Gateways"]
+      },
+      {
+        key: "wtechy",
+        path: "experience/wtechy.ts",
+        title: "WTECHY // WEB DEVELOPER EXECUTIVE",
+        meta: "STATUS 200 OK | Jun 2024 - Nov 2024 | Panchkula, Haryana",
+        bullets: [
+          "Built 5+ responsive and SEO-friendly web applications using React.js and Next.js, focusing on reusable components, clean UI architecture, and cross-browser compatibility[cite: 1].",
+          "Developed backend services and RESTful APIs using Node.js, MongoDB, and PHP/Laravel, implementing authentication, session handling, and efficient data flows[cite: 1].",
+          "Integrated CMS solutions into client websites, reducing content update turnaround time by 40% and enabling non-technical teams to manage content independently[cite: 1].",
+          "Worked directly with clients to gather requirements and translate them into technical specifications, ensuring timely and accurate feature delivery[cite: 1]."
+        ],
+        tags: ["Next.js", "React.js", "MongoDB", "Laravel", "Headless CMS"]
+      }
+    ];
+
+    const educationData = [
+      {
+        degree: "Master of Computer Applications (MCA)",
+        score: "82% (Honors Distinction)",
+        period: "2021 — 2024",
+        institution: "Panjab University, Chandigarh",
+        details: [
+          "Advanced studies in Distributed Systems, Object-Oriented Software Engineering, Cloud Computing, and Scalable Databases.",
+          "Graduated in the top percentile with an aggregate honors score of 82%[cite: 1]."
+        ]
+      },
+      {
+        degree: "Bachelor of Computer Applications (BCA)",
+        score: "83.5% (Honors Distinction)",
+        period: "2018 — 2021",
+        institution: "Panjab University, Chandigarh",
+        details: [
+          "Core Foundations: Data Structures & Algorithms, Operating Systems, Database Management Systems (SQL), Web Development[cite: 1].",
+          "Graduated with distinction scoring 83.5% aggregate[cite: 1]."
+        ]
+      }
+    ];
+
+    const allSkillsData = {
+      frontend: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "Bootstrap"],
+      backend: ["Node.js", "Express.js", "REST APIs", "Java", "PHP", "Laravel"],
+      databases: ["MongoDB (NoSQL)", "MySQL", "Redis (Cache)"],
+      devops: ["Docker", "AWS", "Jenkins", "CI/CD Pipelines", "Git", "GitHub"],
+      core: ["System Design", "Microservices Architecture", "Third-Party Integrations", "DSA", "API Security", "Debugging"]
+    };
+
+    const skillPings = {
+      'React.js': { type: 'FRONTEND', desc: 'Component virtualization, hooks architecture, and SSR hydration at Unstop & WTechy[cite: 1].' },
+      'Next.js': { type: 'FULL-STACK', desc: 'Hybrid static/server rendering and SEO optimization for web applications[cite: 1].' },
+      'Node.js': { type: 'BACKEND', desc: 'High-concurrency microservices, event-driven pipelines, and transactional REST APIs[cite: 1].' },
+      'TypeScript': { type: 'LANGUAGE', desc: 'Strict interface schemas, compile-time validation, and full typing across services[cite: 1].' },
+      'MongoDB': { type: 'NOSQL DB', desc: 'Index optimization, aggregation pipelines, and high-traffic schema design[cite: 1].' },
+      'Redis': { type: 'CACHE LAYER', desc: 'Sub-millisecond data caching, token store, and API rate-limiting enforcement[cite: 1].' },
+      'Docker': { type: 'CONTAINER', desc: 'Microservice containerization, environment parity, and CI/CD automation[cite: 1].' },
+      'REST APIs': { type: 'SECURITY', desc: 'Hardened 10+ endpoints with token validation and role-based access control[cite: 1].' },
+      'System Design': { type: 'ARCHITECTURE', desc: 'Microservices boundaries, caching strategies, and mentoring 5 developers[cite: 1].' }
+    };
+
+    const stream = document.getElementById('consoleStream');
+    const pathLabel = document.getElementById('activePath');
+    const cliInput = document.getElementById('cliInputField');
+
+    // --- MODAL CONTROLS ---
+    function openResumeModal() {
+      document.getElementById('resumeModal').classList.add('active');
+    }
+
+    function closeResumeModal() {
+      document.getElementById('resumeModal').classList.remove('active');
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeResumeModal();
+    });
+
+    // --- RENDER ALL EXPERIENCES ---
+    function renderAllExperience() {
+      document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('active'));
+      const activeNode = document.getElementById('node-all-exp');
+      if (activeNode) activeNode.classList.add('active');
+
+      stream.innerHTML = '';
+      pathLabel.innerText = 'experience/all.log';
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+
+      let cardsHtml = experiencesData.map(exp => `
+        <div class="log-card">
+          <div class="log-header cyan">
+            <span>${exp.title}</span>
+            <span>${exp.meta}</span>
+          </div>
+          <div style="margin-top: 8px;">
+            ${exp.bullets.map(b => `<div class="bullet-row">${b}</div>`).join('')}
+          </div>
+          <div class="tag-container">
+            ${exp.tags.map(t => `<span class="console-tag">${t}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      entry.innerHTML = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>cat /var/system/experience/*.log --chronological</span>
+        </div>
+        ${cardsHtml}
+      `;
+
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- RENDER SINGLE EXPERIENCE NODE ---
+    function selectNode(key) {
+      document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('active'));
+      const activeNode = document.getElementById(`node-${key}`);
+      if (activeNode) activeNode.classList.add('active');
+
+      const data = experiencesData.find(e => e.key === key);
+      if (!data) return;
+
+      stream.innerHTML = '';
+      pathLabel.innerText = data.path;
+
+      let bulletsHtml = data.bullets.map(b => `<div class="bullet-row">${b}</div>`).join('');
+      let tagsHtml = data.tags.map(t => `<span class="console-tag">${t}</span>`).join('');
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      entry.innerHTML = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>cat /var/system/${data.path}</span>
+        </div>
+        <div class="log-card">
+          <div class="log-header cyan">
+            <span>${data.title}</span>
+            <span>${data.meta}</span>
+          </div>
+          <div style="margin-top: 8px;">${bulletsHtml}</div>
+          <div class="tag-container">${tagsHtml}</div>
+        </div>
+      `;
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- RENDER ALL EDUCATION ---
+    function renderAllEducation() {
+      document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('active'));
+      const activeNode = document.getElementById('node-academics');
+      if (activeNode) activeNode.classList.add('active');
+
+      stream.innerHTML = '';
+      pathLabel.innerText = 'academics/panjab_university.edu';
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+
+      let cardsHtml = educationData.map(edu => `
+        <div class="log-card">
+          <div class="log-header green">
+            <span>${edu.degree.toUpperCase()}</span>
+            <span>${edu.score}</span>
+          </div>
+          <div style="color: #94a3b8; font-size: 0.76rem; margin-bottom: 8px;">
+            ${edu.institution} • [${edu.period}]
+          </div>
+          <div style="margin-top: 4px;">
+            ${edu.details.map(d => `<div class="bullet-row">${d}</div>`).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      entry.innerHTML = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>cat /etc/academics/panjab_university.edu --all</span>
+        </div>
+        ${cardsHtml}
+      `;
+
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- RENDER ALL SKILLS MATRIX ---
+    function renderAllSkills() {
+      document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('active'));
+      stream.innerHTML = '';
+      pathLabel.innerText = 'system/skills.env';
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      
+      let html = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>cat /etc/system/skills.env --verbose</span>
+        </div>
+        <div class="log-card">
+          <div class="log-header amber">
+            <span>FULL STACK SYSTEM COMPETENCIES</span>
+            <span>2.5+ YEARS EXP</span>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ FRONTEND TECHNOLOGIES</div>
+            <div class="tag-container">
+              ${allSkillsData.frontend.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ BACKEND & MICROSERVICES</div>
+            <div class="tag-container">
+              ${allSkillsData.backend.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ DATABASES & CACHING</div>
+            <div class="tag-container">
+              ${allSkillsData.databases.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ DEVOPS, CLOUD & TOOLS</div>
+            <div class="tag-container">
+              ${allSkillsData.devops.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+
+          <div class="skills-category-block">
+            <div class="skills-cat-title">◈ CORE ENGINEERING FOUNDATIONS</div>
+            <div class="tag-container">
+              ${allSkillsData.core.map(s => `<span class="console-tag">${s}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+
+      entry.innerHTML = html;
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- PING INDIVIDUAL SKILL ---
+    function pingSkill(skillName) {
+      document.querySelectorAll('.heat-chip').forEach(c => {
+        if (c.innerText.trim() === skillName) c.classList.add('active');
+        else c.classList.remove('active');
+      });
+
+      const info = skillPings[skillName] || { type: 'RUNTIME', desc: 'Production verified competency.' };
+      pathLabel.innerText = `skills/${skillName.toLowerCase().replace(/[^a-z0-9]/g, '')}.ping`;
+
+      stream.innerHTML = '';
+
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      entry.innerHTML = `
+        <div class="log-command-line">
+          <span class="log-prompt">➜</span>
+          <span>ping -c 1 --telemetry ${skillName}</span>
+        </div>
+        <div class="log-card">
+          <div class="log-header green">
+            <span>64 bytes from runtime: [${skillName}]</span>
+            <span>TYPE: ${info.type}</span>
+          </div>
+          <div style="color: #cbd5e1; font-size: 0.8rem; margin-top: 6px; line-height: 1.5;">↳ ${info.desc}</div>
+        </div>
+      `;
+      stream.appendChild(entry);
+      stream.scrollTop = 0;
+
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+    }
+
+    // --- MOBILE VIEWPORT SWITCHER ---
+    function switchMobilePane(pane) {
+      const sidebar = document.getElementById('stationSidebar');
+      const consolePane = document.getElementById('stationConsole');
+      const btnTree = document.getElementById('btnPaneTree');
+      const btnConsole = document.getElementById('btnPaneConsole');
+
+      if (pane === 'tree') {
+        sidebar.style.display = 'flex';
+        consolePane.style.display = 'none';
+        btnTree.classList.add('active');
+        btnConsole.classList.remove('active');
+      } else {
+        sidebar.style.display = 'none';
+        consolePane.style.display = 'flex';
+        btnConsole.classList.add('active');
+        btnTree.classList.remove('active');
+        stream.scrollTop = 0;
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      highlightDock('dock-hero');
+    }
+
+    function openConsoleTab() {
+      const ws = document.getElementById('sec-workstation');
+      ws.scrollIntoView({ behavior: 'smooth' });
+      if (window.innerWidth <= 768) {
+        switchMobilePane('console');
+      }
+      cliInput.focus();
+    }
+
+    // --- UNIFIED NAVIGATION ROUTER ---
+    function activateSection(secKey) {
+      const ws = document.getElementById('sec-workstation');
+      ws.scrollIntoView({ behavior: 'smooth' });
+
+      if (secKey === 'experience') {
+        renderAllExperience();
+        highlightDock('dock-exp');
+      } else if (secKey === 'stack' || secKey === 'skills') {
+        renderAllSkills();
+        highlightDock('dock-stack');
+      } else if (secKey === 'education' || secKey === 'academics') {
+        renderAllEducation();
+        highlightDock('dock-edu');
+      }
+    }
+
+    function highlightDock(dockId) {
+      document.querySelectorAll('.dock-item').forEach(d => d.classList.remove('active'));
+      const target = document.getElementById(dockId);
+      if (target) target.classList.add('active');
+    }
+
+    // --- CLI COMMAND PROCESSOR ---
+    cliInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = cliInput.value.trim().toLowerCase();
+        if (!val) return;
+
+        stream.innerHTML = '';
+
+        const row = document.createElement('div');
+        row.className = 'log-command-line';
+        row.innerHTML = `<span class="log-prompt">➜</span><span>${cliInput.value}</span>`;
+        stream.appendChild(row);
+
+        if (val === 'clear') {
+          stream.innerHTML = '';
+        } else if (val === 'skills' || val === 'stack') {
+          renderAllSkills();
+        } else if (val === 'experience' || val === 'all') {
+          renderAllExperience();
+        } else if (val === 'education' || val === 'academics') {
+          renderAllEducation();
+        } else if (val === 'resume' || val === 'cv') {
+          openResumeModal();
+          const res = document.createElement('div');
+          res.className = 'log-card';
+          res.innerHTML = `<span style="color:var(--terminal-green); font-size:0.8rem;">Opening Resume_ANJALI_SDE.pdf modal viewer...</span>`;
+          stream.appendChild(res);
+        } else if (experiencesData.some(e => e.key === val)) {
+          selectNode(val);
+        } else if (val === 'help') {
+          const res = document.createElement('div');
+          res.className = 'log-card';
+          res.innerHTML = `<span style="color:var(--terminal-amber); font-size:0.8rem;">Recognized: 'experience', 'education', 'skills', 'resume', 'unstop', 'jungleworks', 'wtechy', 'contact', 'clear'</span>`;
+          stream.appendChild(res);
+        } else if (val === 'contact') {
+          const res = document.createElement('div');
+          res.className = 'log-card';
+          res.innerHTML = `<span style="color:var(--terminal-green); font-size:0.8rem;">Email: anjalicjm06@gmail.com | Phone: +91-8307376974 | LinkedIn: linkedin.com/in/anjali</span>`;
+          stream.appendChild(res);
+        } else {
+          const res = document.createElement('div');
+          res.className = 'log-card';
+          res.style.color = '#f87171';
+          res.innerText = `Command '${val}' not recognized. Type 'help' for options.`;
+          stream.appendChild(res);
+        }
+
+        cliInput.value = '';
+        stream.scrollTop = stream.scrollHeight;
+      }
+    });
+
+    // Mobile Dock Scroll Detection
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const wsTop = document.getElementById('sec-workstation').offsetTop - 200;
+      if (scrollY < wsTop) {
+        highlightDock('dock-hero');
+      }
+    });
+
+    // Initial render
+    renderAllExperience();
+  </script>
+</body>
+</html>
